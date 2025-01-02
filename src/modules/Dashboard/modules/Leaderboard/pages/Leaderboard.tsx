@@ -130,7 +130,7 @@ const Leaderboard: React.FC = () => {
               <td colSpan={3}>Your Rank</td>
             </tr>
             <tr className={styles["user-rank"]}>
-              <td>#{myRank.rank}</td>
+              <td className={styles["other-rank"]}>#{myRank.rank}</td>
               <td>{myRank.name}</td>
               <td>{myRank.points ? myRank.points.toLocaleString() : '0'} Points</td>
             </tr>
@@ -141,7 +141,8 @@ const Leaderboard: React.FC = () => {
             {users.map((user, index) =>
               user.name !== "You" ? (
                 <tr key={index}>
-                  <td>#{index + 1}</td>
+                  {/* Change class for top 3 ranks */}
+                  <td className={index < 3 ? styles["top3-rank"] : styles["other-rank"]}>#{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.points ? user.points.toLocaleString() : '0'} Points</td>
                 </tr>

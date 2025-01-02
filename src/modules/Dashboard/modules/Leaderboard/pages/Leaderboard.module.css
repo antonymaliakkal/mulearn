@@ -204,3 +204,16 @@ tr:hover {
 .table-headers {
   margin-top: 1rem;
 }
+
+/* Green for top 3 ranks */
+.top3-rank {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Red for other ranks */
+  .other-rank {
+    color: red;
+    font-weight: bold;
+  }
+  
