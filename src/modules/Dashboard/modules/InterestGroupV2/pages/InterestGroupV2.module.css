@@ -1,0 +1,61 @@
+/* Outer container */
+.outerContainer {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 40px auto;
+    border: 1px solid #787878;
+    /* Add a clean black border */
+}
+
+/* Grid title */
+.gridTitle {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+/* Grid layout */
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Individual grid item */
+.gridItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #787878;
+    /* Add a clean black border */
+    transition: transform 0.2s;
+}
+
+.gridItem:hover {
+    transform: translateY(-4px);
+}
+
+/* Image in grid item */
+.gridImage {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+/* Text in grid item */
+.gridName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin: 0;
+}
