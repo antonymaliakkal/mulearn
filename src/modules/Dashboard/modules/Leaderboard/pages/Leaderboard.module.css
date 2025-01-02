@@ -39,24 +39,36 @@ body {
 }
 
 .champions-section {
-  background: linear-gradient(to right, #032052, #4C0239);
-  color: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  /* max-width: 900px; */
-  box-sizing: border-box;
-}
-
-.champions-header h2 {
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  position: relative;
-}
-
+    position: relative; /* Make this container the reference for the absolute positioning */
+    background: linear-gradient(to right, #032052, #4C0239);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure no content is overflowing out of the box */
+    height: 300px; /* Specify a height for the container */
+  }
+  
+  .champions-header {
+    position: absolute; /* Make sure it's positioned within the champions-section */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center it exactly */
+    z-index: 1; /* Ensure it's above the background */
+  }
+  
+  .champions-header h2 {
+    font-size: 120px; /* Make the text large */
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  }
+  
+  
+  
 .top-3 {
   display: flex;
   justify-content: center;
