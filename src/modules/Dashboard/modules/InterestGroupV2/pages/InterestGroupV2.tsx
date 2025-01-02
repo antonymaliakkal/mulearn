@@ -27,8 +27,7 @@ const InterestGroupV2: React.FC<Props> = ({ title }) => {
   return (
     <div>
       <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+      <p>This is the Interest Group page</p>
     </div>
   );
 };
