@@ -1,0 +1,45 @@
+.cardImage {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.icon {
+  margin-right: 8px;
+  color: #555;
+}
+
+.joinButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Ensure the button takes full width */
+  box-sizing: border-box; /* Include padding in the width */
+  margin-bottom: 10px; /* Add margin to separate from joined text */
+}
+
+.joinedText {
+  font-size: 14px;
+  color: #555;
+  text-align: center; /* Center align the text */
+  margin-top: 10px; /* Add some margin above the text */
+  margin-bottom: 0; /* Remove any unwanted margin */
+}
+
+/* Ensure the footer occupies full width and aligns items properly */
+.cardFooter {
+  width: 100%; /* Ensure CardFooter takes full width */
+  padding: 0 10px; /* Optional padding for better spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

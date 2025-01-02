@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import EventCard from '../components/EventCard/EventCard';
 
-interface Props {
-  // Define your props types here
-  title: string;
-}
-
-const LearningCircleV3: React.FC<Props> = ({ title }) => {
-  // State using hooks
-  const [count, setCount] = useState<number>(0);
-
-  // useEffect hook to mimic componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // This will run once after the initial render
-    console.log('Component mounted or updated');
-    
-    return () => {
-      // This will run when the component is unmounted or before it updates
-      console.log('Cleanup');
-    };
-  }, [count]); // Only runs when `count` changes
-
-  const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
+const LearningCircleV3: React.FC = () => {
   return (
     <div>
-      <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+      <EventCard
+        image="https://via.placeholder.com/400x200"
+        title="Digital Marketing Workshop"
+        subtitle="College of Engineering Trivandrum"
+        date="January 15, 2025"
+        time="10:00 AM - 12:00 PM"
+        location="CET Main Hall"
+        joinedText="5 people you might know have joined"
+      />
     </div>
   );
 };
