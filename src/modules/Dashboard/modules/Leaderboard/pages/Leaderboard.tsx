@@ -64,14 +64,7 @@ const Leaderboard: React.FC = () => {
 
   return (
     <div className={styles["leaderboard-container"]}>
-      {/* Header Section */}
-      <header className={styles["leaderboard-header"]}>
-        <h1>Leaderboard</h1>
-        <div className={styles["search-bar"]}>
-          <input type="text" placeholder="Search for skills, jobs, locations, colleges" />
-        </div>
-      </header>
-
+    
       {/* Champions Section */}
       <section className={styles["champions-section"]}>
         <div className={styles["champions-header"]}>
@@ -108,7 +101,6 @@ const Leaderboard: React.FC = () => {
 
       {/* Leaderboard Table */}
       <section className={styles["leaderboard-table"]}>
-        <h3>Your Rank</h3>
         <table>
           <thead>
             <tr>
@@ -119,10 +111,16 @@ const Leaderboard: React.FC = () => {
           </thead>
           <tbody>
             {/* Your ranking */}
+            <tr>
+              <td colSpan={3}>Your Rank</td>
+            </tr>
             <tr className={styles["user-rank"]}>
               <td>#{myRank.rank}</td>
               <td>{myRank.name}</td>
               <td>{myRank.points ? myRank.points.toLocaleString() : '0'} Points</td>
+            </tr>
+            <tr>
+              <td colSpan={3}>Leader Board</td>
             </tr>
             {/* Other users */}
             {users.map((user, index) =>
