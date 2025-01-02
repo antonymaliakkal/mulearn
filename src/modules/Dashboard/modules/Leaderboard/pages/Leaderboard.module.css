@@ -39,7 +39,7 @@ body {
 }
 
 .champions-section {
-  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(to right, #032052, #4C0239);
   color: #ffffff;
   border-radius: 16px;
   padding: 20px;
@@ -128,7 +128,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  background: linear-gradient(180deg, #00BFFF, #FF6F61); /* Sky Blue to Rose gradient */
+  background: linear-gradient(180deg, #4BF0FF, #FF8FE3); /* Sky Blue to Rose gradient */
   transition: height 0.5s ease-in-out;
   margin-top:0;
 }
