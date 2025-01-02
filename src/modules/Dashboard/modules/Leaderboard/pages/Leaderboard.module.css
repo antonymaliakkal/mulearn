@@ -7,7 +7,6 @@ body {
 
 .leaderboard-container {
   width: 100%;
-  margin: 20px auto;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -48,7 +47,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     overflow: hidden; /* Ensure no content is overflowing out of the box */
-    height: 300px; /* Specify a height for the container */
+    height: 26rem; /* Specify a height for the container */
   }
   
   .champions-header {
@@ -73,10 +72,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 10px;
+  gap: 2rem;
   position: relative;
   margin-top: 30px;
   width: 100%;
+  height: 100%;
+  margin-bottom: 0;
 }
 
 .champion {
@@ -135,29 +136,48 @@ body {
 /* General style for the bar */
 .bar {
   width: 100%;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  background: linear-gradient(180deg, #4BF0FF, #FF8FE3); /* Sky Blue to Rose gradient */
+  background: linear-gradient(180deg, #4BF0FF 0%, #FF8FE3 100%); /* Sky Blue to Rose gradient */
   transition: height 0.5s ease-in-out;
   margin-top:0;
+}
+
+.bar-info {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-4rem);
+}
+
+.bar-1 .bar-info {
+  transform: translateY(-85px);
+}
+
+.crown {
+  transform: translateY(-30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bar-points {
   position: absolute;
   top: -20px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: black;
+  transform: translateY(30px);
+  /* text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); */
 }
 
 .champion-name {
   margin: 8px 0 5px;
   font-weight: bold;
   font-size: 14px;
+  transform: translateY(-30px);
 }
 
 /* Table styling */
@@ -165,9 +185,11 @@ body {
   width: 100%;
   /* max-width: 800px; */
   background: #f9f9f9; /* Default background for the table body */
-  border-radius: 12px 12px 0 0; /* Top-left and top-right corners rounded */
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: black;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .leaderboard-table h3 {
@@ -175,9 +197,21 @@ body {
   margin-bottom: 15px;
 }
 
+.table-wrapper {
+  border-radius: 8px; /* Rounded corners for the entire table */
+  overflow: hidden;
+  width: 100%; /* Ensure content doesn't overflow */
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+  font-weight: bold;
+}
+
+thead {
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th,
@@ -192,9 +226,9 @@ th {
   font-weight: bold;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background: #f3f3f3;
-}
+} */
 
 tr:hover {
   background: #e8e8e8;
@@ -203,6 +237,10 @@ tr:hover {
 
 .table-headers {
   margin-top: 1rem;
+}
+
+.table-subtitle {
+  font-weight: normal;
 }
 
 /* Green for top 3 ranks */

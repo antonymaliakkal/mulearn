@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./Leaderboard.module.css"; // Importing the CSS Module
 import Confetti from 'react-confetti'; // Importing Confetti
+import championCrown from '../../../assets/svg/ChampionCrown'
+import { duration } from "moment";
+import ChampionCrown from "../../../assets/svg/ChampionCrown";
 
 // Define types for the state objects
 interface User {
@@ -16,6 +19,7 @@ const Leaderboard: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [rankingData, setRankingData] = useState<User[]>([]);
   const [myRank, setMyRank] = useState<MyRank>({ name: "", points: 0, rank: 0 });
+  const [numberOfPieces, setNumberOfPieces] = useState<number>(500);
   
   // Create a ref for the champions section to calculate its size
   const championsRef = useRef<HTMLDivElement>(null);
@@ -59,7 +63,23 @@ const Leaderboard: React.FC = () => {
     };
 
     fetchData();
+
+    // Gradually reduce the number of confetti pieces after 3 seconds
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setNumberOfPieces((prev) => {
+          if (prev <= 0) {
+            clearInterval(interval); // Stop when pieces are reduced to zero
+            return 0;
+          }
+          return prev - 50; // Reduce by 50 pieces per step
+        });
+      }, 100); // Adjust interval duration for smooth reduction
+    }, 3000); // Start reduction after 3 seconds
+
+    return () => clearTimeout(timer); // Cleanup timer
   }, []);
+
 
   const maxPoints = rankingData[0]?.points || 1;
 
@@ -76,10 +96,11 @@ const Leaderboard: React.FC = () => {
     
       {/* Confetti component positioned inside the champions section */}
       <div ref={championsRef} className={styles["champions-section"]}>
-        <Confetti
+      <Confetti
           width={championsBoxDimensions.width}
           height={championsBoxDimensions.height}
-          numberOfPieces={500} // You can adjust the number of pieces
+          numberOfPieces={numberOfPieces} // Dynamically control number of pieces
+          tweenDuration={5000}
         />
         
         <div className={styles["champions-header"]}>
@@ -91,13 +112,7 @@ const Leaderboard: React.FC = () => {
               key={index}
               className={`${styles["champion"]} ${styles[`champion-${index + 1}`]} ${index === 0 ? styles["center"] : index === 1 ? styles["left"] : styles["right"]}`}
             >
-              <div className={styles["circle-container"]}>
-                <img
-                  src={`https://via.placeholder.com/50?text=${user.name.charAt(0)}`}
-                  alt={user.name}
-                  className={styles["champion-avatar"]}
-                />
-              </div>
+              
               <div className={styles["bar-container"]}>
                 <div
                   className={`${styles["bar"]} ${index === 0 ? styles["bar-1"] : index === 1 ? styles["bar-2"] : styles["bar-3"]}`}
@@ -105,10 +120,22 @@ const Leaderboard: React.FC = () => {
                     height: `${(user.points / maxPoints) * 100}%`,
                   }}
                 >
+                  <div className={styles["bar-info"]}>
+                    <div className={styles['crown']}>
+                      {index === 0?   <ChampionCrown />: ''}
+                    </div>
+                    <div className={styles["circle-container"]}>
+                      <img
+                        src={`https://via.placeholder.com/50?text=${user.name.charAt(0)}`}
+                        alt={user.name}
+                        className={styles["champion-avatar"]}
+                      />
+                    </div>
+                    <p className={styles["champion-name"]}>{user.name.split(" ")[0]}</p>
+                  </div>
                   <span className={styles["bar-points"]}>{user.points ? user.points.toLocaleString() : '0'}</span>
                 </div>
               </div>
-              <p className={styles["champion-name"]}>{user.name.split(" ")[0]}</p>
             </div>
           ))}
         </div>
@@ -116,6 +143,7 @@ const Leaderboard: React.FC = () => {
 
       {/* Leaderboard Table */}
       <section className={styles["leaderboard-table"]}>
+      <div className={styles["table-wrapper"]}> {/* New wrapper div */}
         <table>
           <thead>
             <tr>
@@ -126,16 +154,18 @@ const Leaderboard: React.FC = () => {
           </thead>
           <tbody>
             {/* Your ranking */}
+            <tr><td></td></tr>
             <tr>
-              <td colSpan={3}>Your Rank</td>
+              <td className={styles['table-subtitle']} colSpan={3}>Your Rank</td>
             </tr>
             <tr className={styles["user-rank"]}>
               <td className={styles["other-rank"]}>#{myRank.rank}</td>
               <td>{myRank.name}</td>
               <td>{myRank.points ? myRank.points.toLocaleString() : '0'} Points</td>
             </tr>
+            <tr><td></td></tr>
             <tr>
-              <td colSpan={3}>Leader Board</td>
+              <td className={styles['table-subtitle']} colSpan={3}>Leader Board</td>
             </tr>
             {/* Other users */}
             {users.map((user, index) =>
@@ -150,7 +180,9 @@ const Leaderboard: React.FC = () => {
             )}
           </tbody>
         </table>
-      </section>
+      </div> {/* End of wrapper div */}
+    </section>
+
     </div>
   );
 };
