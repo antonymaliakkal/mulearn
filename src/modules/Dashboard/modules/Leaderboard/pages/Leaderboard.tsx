@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./Leaderboard.module.css"; // Importing the CSS Module
+import Confetti from 'react-confetti'; // Importing Confetti
 
 // Define types for the state objects
 interface User {
@@ -15,41 +16,41 @@ const Leaderboard: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [rankingData, setRankingData] = useState<User[]>([]);
   const [myRank, setMyRank] = useState<MyRank>({ name: "", points: 0, rank: 0 });
+  
+  // Create a ref for the champions section to calculate its size
+  const championsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchData = () => {
       const data: User[] = [
-        { name: "Edwin Emmanuel Roy", points: 50000 }, // 1st
-        { name: "Anna Hathaway", points: 40000 },      // 2nd
-        { name: "Alexa Simpson", points: 30000 },      // 3rd
-        { name: "Albert Peter Jose", points: 12000 },  // 4th
-        { name: "John Doe", points: 11000 },           // 5th
-        { name: "Jane Smith", points: 10000 },         // 6th
-        { name: "Michael Johnson", points: 9500 },     // 7th
-        { name: "Emily Davis", points: 9000 },         // 8th
-        { name: "Chris Brown", points: 8500 },         // 9th
-        { name: "Jessica Wilson", points: 8000 },      // 10th
-        { name: "Daniel Garcia", points: 7800 },       // 11th
-        { name: "Sarah Martinez", points: 7600 },      // 12th
-        { name: "David Lee", points: 7400 },           // 13th
-        { name: "Laura Taylor", points: 7200 },        // 14th
-        { name: "James Anderson", points: 7000 },      // 15th
-        { name: "Sophia Thomas", points: 6800 },       // 16th
-        { name: "William Jackson", points: 6600 },     // 17th
-        { name: "Olivia White", points: 6400 },        // 18th
-        { name: "Benjamin Harris", points: 6200 },     // 19th
-        { name: "Isabella Martin", points: 6000 },     // 20th
+        { name: "Edwin Emmanuel Roy", points: 50000 },
+        { name: "Anna Hathaway", points: 40000 },
+        { name: "Alexa Simpson", points: 30000 },
+        { name: "Albert Peter Jose", points: 12000 },
+        { name: "John Doe", points: 11000 },
+        { name: "Jane Smith", points: 10000 },
+        { name: "Michael Johnson", points: 9500 },
+        { name: "Emily Davis", points: 9000 },
+        { name: "Chris Brown", points: 8500 },
+        { name: "Jessica Wilson", points: 8000 },
+        { name: "Daniel Garcia", points: 7800 },
+        { name: "Sarah Martinez", points: 7600 },
+        { name: "David Lee", points: 7400 },
+        { name: "Laura Taylor", points: 7200 },
+        { name: "James Anderson", points: 7000 },
+        { name: "Sophia Thomas", points: 6800 },
+        { name: "William Jackson", points: 6600 },
+        { name: "Olivia White", points: 6400 },
+        { name: "Benjamin Harris", points: 6200 },
+        { name: "Isabella Martin", points: 6000 },
       ];
 
-      const myData: User = { name: "You", points: 6000 }; // Example: "You" with higher points
+      const myData: User = { name: "You", points: 6000 };
 
-      // Add "myData" to the data array
       const updatedData = [myData, ...data];
 
-      // Sort the data by points in descending order
       const sortedData = updatedData.sort((a, b) => b.points - a.points);
 
-      // Find your rank
       const myRankIndex = sortedData.findIndex(user => user.name === "You");
 
       setUsers(sortedData);
@@ -60,13 +61,27 @@ const Leaderboard: React.FC = () => {
     fetchData();
   }, []);
 
-  const maxPoints = rankingData[0]?.points || 1; // Prevent division by zero
+  const maxPoints = rankingData[0]?.points || 1;
+
+  // Get dimensions of the champions section
+  const championsBoxDimensions = championsRef.current
+    ? {
+        width: championsRef.current.offsetWidth,
+        height: championsRef.current.offsetHeight,
+      }
+    : { width: 0, height: 0 };
 
   return (
     <div className={styles["leaderboard-container"]}>
     
-      {/* Champions Section */}
-      <section className={styles["champions-section"]}>
+      {/* Confetti component positioned inside the champions section */}
+      <div ref={championsRef} className={styles["champions-section"]}>
+        <Confetti
+          width={championsBoxDimensions.width}
+          height={championsBoxDimensions.height}
+          numberOfPieces={500} // You can adjust the number of pieces
+        />
+        
         <div className={styles["champions-header"]}>
           <h2>CHAMPIONS</h2>
         </div>
@@ -97,7 +112,7 @@ const Leaderboard: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
       {/* Leaderboard Table */}
       <section className={styles["leaderboard-table"]}>
