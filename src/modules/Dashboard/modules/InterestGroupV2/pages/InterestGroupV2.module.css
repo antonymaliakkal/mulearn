@@ -1,13 +1,14 @@
 /* Outer container */
 .outerContainer {
-    width: 90%;
-    max-width: 800px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 24px;
-    margin: 40px auto;
-    border: 1px solid #787878;
-    /* Add a clean black border */
+    width: 100%;
+        /* Full width of the screen */
+        max-width: 1200px;
+        /* Optional: Set a max-width to prevent it from becoming too wide */
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        margin: 40px auto;
+        border: 1px solid #787878;
 }
 
 /* Grid title */
@@ -16,6 +17,7 @@
     color: #000000;
     margin-bottom: 24px;
     text-align: left;
+    font-weight: bold;
 }
 
 /* Grid layout */
@@ -27,17 +29,21 @@
 
 /* Individual grid item */
 .gridItem {
-    display: flex;
+display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #ffffff;
-    padding: 16px;
+    padding: 24px;
+    /* Increase padding for larger items */
     border-radius: 12px;
     border: 2px solid #787878;
     /* Add a clean black border */
     transition: transform 0.2s;
+    width: 100%;
+    /* Full width of its container */
+    max-width: 350px;
 }
 
 .gridItem:hover {
@@ -45,17 +51,21 @@
 }
 
 /* Image in grid item */
+/* Image in grid item */
 .gridImage {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    /* Increase width */
+    height: 120px;
+    /* Increase height */
     object-fit: contain;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    /* Adjust bottom margin to give some space */
 }
 
 /* Text in grid item */
 .gridName {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: bold;
     color: #555;
     margin: 0;
 }
