@@ -58,6 +58,11 @@ import LCReport from "./modules/Dashboard/modules/LearningCircleV2/pages/LCRepor
 import UserInterest from "./modules/Common/Authentication/pages/Onboarding/UserInterest/UserInterest";
 import PathFinder from "./modules/Common/Authentication/pages/Onboarding/PathFinder/PathFinder";
 import RegisterPage from "./modules/Common/Authentication/pages/Onboarding/Register/Register";
+import ProfileV3 from "./modules/Dashboard/modules/ProfileV3/pages/ProfileV3";
+import Opportunity from "./modules/Dashboard/modules/Opportunity/pages/Opportunity";
+import LearningCircleV3 from "./modules/Dashboard/modules/LearningCircleV3/pages/LearningCircleV3";
+import Leaderboard from "./modules/Dashboard/modules/Leaderboard/pages/Leaderboard";
+import InterestGroupV2 from "./modules/Dashboard/modules/InterestGroupV2/pages/InterestGroupV2";
 
 const Profile = lazy(
     () => import("./modules/Dashboard/modules/Profile/pages/Profile")
@@ -342,8 +347,34 @@ function App() {
         },
         // { path: "register/select-community", element: <CommunityPage /> },
         {
+            path : "/dev",
+            element : <DashboardRootLayout />,
+            children : [
+                {
+                    path : "profile",
+                    element : <ProfileV3 title="Welcome to My Profile"/>
+                },
+                {
+                    path : "opportunity",
+                    element : <Opportunity title="Welcome to My Opportunity"/>
+                },
+                {
+                    path : "learning-circle",
+                    element : <LearningCircleV3 title="Welcome to My LearningCircle"/>
+                },
+                {
+                    path : "leaderboard",
+                    element : <Leaderboard title="Welcome to My Leaderboard"/>
+                },
+                {
+                    path : "inerest-group",
+                    element : <InterestGroupV2 title="Welcome to My InterestGroup" />
+                }
+            ]
+        },
+        {
             path: "/",
-            element: <PrivateRoutes />,
+            // element: <PrivateRoutes />,
             children: [
                 {
                     path: "/dashboard",
