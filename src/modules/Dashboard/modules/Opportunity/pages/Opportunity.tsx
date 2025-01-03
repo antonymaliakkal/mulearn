@@ -1,34 +1,69 @@
 import React, { useState, useEffect } from 'react';
+import OpportunityCard from './components/OpportunityCard';
+import styles from './Opportunity.module.css';
 
 interface Props {
   // Define your props types here
-  title: string;
 }
 
-const Opportunity: React.FC<Props> = ({ title }) => {
-  // State using hooks
-  const [count, setCount] = useState<number>(0);
+const Opportunity: React.FC<Props> = () => {
 
-  // useEffect hook to mimic componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // This will run once after the initial render
-    console.log('Component mounted or updated');
-    
-    return () => {
-      // This will run when the component is unmounted or before it updates
-      console.log('Cleanup');
-    };
-  }, [count]); // Only runs when `count` changes
-
-  const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
+  const opportunities = [
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    },
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    },
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    },
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    },
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    },
+    {
+      title : "Content Writer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      company: "Google",
+      location: "Remote",
+      jobType: "Part-time",
+      link: "#"
+    }
+  ];
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+    <div className={styles.mainDiv}>
+      {opportunities.map((value,index)=>(
+        <OpportunityCard key={index} title={value.title} company={value.company} description={value.description} jobType={value.jobType} location={value.location} link={value.link}/>
+      ))}
     </div>
   );
 };
