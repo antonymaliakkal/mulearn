@@ -1,36 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import AllLearningCircles from "../components/AllLearningCircles/AllLearningCircles";
+import LearningCircleWithUpcomingMeets from "../components/LearningCircleWithUpcomingMeets/LearningCircleWithUpcomingMeets";
+import styles from "./LearningCircleV3.module.css";
 
-interface Props {
-  // Define your props types here
-  title: string;
-}
+const LearningCircleV3: React.FC = () => {
+    const upcomingEvents = Array.from({ length: 4 }).map((_, index) => ({
+        image: "https://via.placeholder.com/400x200",
+        title: `Event ${index + 1}`,
+        subtitle: "College of Engineering Trivandrum",
+        date: `Jan ${15 + index}`,
+        time: "10:00 AM",
+        location: "CET Main Hall",
+        joinedText: `${5 + index} people you might know have joined`
+    }));
 
-const LearningCircleV3: React.FC<Props> = ({ title }) => {
-  // State using hooks
-  const [count, setCount] = useState<number>(0);
+    const allEvents = Array.from({ length: 4 }).map((_, index) => ({
+        image: "https://via.placeholder.com/400x200",
+        title: `All Event ${index + 1}`,
+        subtitle: "Another Venue",
+        joinedText: `${2 + index} people you might know have joined`
+    }));
 
-  // useEffect hook to mimic componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // This will run once after the initial render
-    console.log('Component mounted or updated');
-    
-    return () => {
-      // This will run when the component is unmounted or before it updates
-      console.log('Cleanup');
-    };
-  }, [count]); // Only runs when `count` changes
-
-  const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
-    </div>
-  );
+    return (
+        <div className={styles.mainBody}>
+            <LearningCircleWithUpcomingMeets events={upcomingEvents} />
+            <AllLearningCircles circles={allEvents} />
+        </div>
+    );
 };
 
 export default LearningCircleV3;
