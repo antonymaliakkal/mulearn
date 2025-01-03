@@ -1,5 +1,5 @@
 .section {
-    width: 1042px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 21px;
@@ -7,7 +7,7 @@
 }
 
 .sectionHeader {
-    width: 1042px;
+    width: 100%;
     height: 25px;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;

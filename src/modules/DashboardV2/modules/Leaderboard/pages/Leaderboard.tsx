@@ -11,6 +11,7 @@ interface User {
   name: string;
   points: number;
   avatar: string;
+  color: string;
 }
 
 interface MyRank extends User {
@@ -30,29 +31,92 @@ const Leaderboard: React.FC = () => {
   useEffect(() => {
     const fetchData = () => {
       const data: User[] = [
-        { name: "Edwin Emmanuel Roy", points: 50000, avatar: EdwinAvatar },
-        { name: "Anna Hathaway", points: 40000, avatar: AnnaAvatar },
-        { name: "Alexa Simpson", points: 30000, avatar: AlexaAvatar },
-        { name: "Albert Peter Jose", points: 12000, avatar: "" },
-        { name: "John Doe", points: 11000, avatar: "" },
-        { name: "Jane Smith", points: 10000, avatar: "" },
-        { name: "Michael Johnson", points: 9500, avatar: "" },
-        { name: "Emily Davis", points: 9000, avatar: "" },
-        { name: "Chris Brown", points: 8500, avatar: "" },
-        { name: "Jessica Wilson", points: 8000, avatar: "" },
-        { name: "Daniel Garcia", points: 7800, avatar: "" },
-        { name: "Sarah Martinez", points: 7600, avatar: "" },
-        { name: "David Lee", points: 7400, avatar: "" },
-        { name: "Laura Taylor", points: 7200, avatar: "" },
-        { name: "James Anderson", points: 7000, avatar: "" },
-        { name: "Sophia Thomas", points: 6800, avatar: "" },
-        { name: "William Jackson", points: 6600, avatar: "" },
-        { name: "Olivia White", points: 6400, avatar: "" },
-        { name: "Benjamin Harris", points: 6200, avatar: "" },
-        { name: "Isabella Martin", points: 6000, avatar: "" },
+        {
+          name: "Edwin Emmanuel Roy", points: 50000, avatar: EdwinAvatar,
+          color: "#CCC1F0"
+        },
+        {
+          name: "Anna Hathaway", points: 40000, avatar: AnnaAvatar,
+          color: "#B4E5BC"
+        },
+        {
+          name: "Alexa Simpson", points: 30000, avatar: AlexaAvatar,
+          color: "#F3ABA7"
+        },
+        {
+          name: "Albert Peter Jose", points: 12000, avatar: "",
+          color: ""
+        },
+        {
+          name: "John Doe", points: 11000, avatar: "",
+          color: ""
+        },
+        {
+          name: "Jane Smith", points: 10000, avatar: "",
+          color: ""
+        },
+        {
+          name: "Michael Johnson", points: 9500, avatar: "",
+          color: ""
+        },
+        {
+          name: "Emily Davis", points: 9000, avatar: "",
+          color: ""
+        },
+        {
+          name: "Chris Brown", points: 8500, avatar: "",
+          color: ""
+        },
+        {
+          name: "Jessica Wilson", points: 8000, avatar: "",
+          color: ""
+        },
+        {
+          name: "Daniel Garcia", points: 7800, avatar: "",
+          color: ""
+        },
+        {
+          name: "Sarah Martinez", points: 7600, avatar: "",
+          color: ""
+        },
+        {
+          name: "David Lee", points: 7400, avatar: "",
+          color: ""
+        },
+        {
+          name: "Laura Taylor", points: 7200, avatar: "",
+          color: ""
+        },
+        {
+          name: "James Anderson", points: 7000, avatar: "",
+          color: ""
+        },
+        {
+          name: "Sophia Thomas", points: 6800, avatar: "",
+          color: ""
+        },
+        {
+          name: "William Jackson", points: 6600, avatar: "",
+          color: ""
+        },
+        {
+          name: "Olivia White", points: 6400, avatar: "",
+          color: ""
+        },
+        {
+          name: "Benjamin Harris", points: 6200, avatar: "",
+          color: ""
+        },
+        {
+          name: "Isabella Martin", points: 6000, avatar: "",
+          color: ""
+        },
       ];
 
-      const myData: User = { name: "You", points: 6000, avatar: "" };
+      const myData: User = {
+        name: "You", points: 6000, avatar: "",
+        color: ""
+      };
 
       const updatedData = [myData, ...data];
       const sortedData = updatedData.sort((a, b) => b.points - a.points);
@@ -123,7 +187,7 @@ const Leaderboard: React.FC = () => {
                 >
                   <div className={styles["bar-info"]}>
                     <div className={styles["crown"]}>{index === 0 ? <ChampionCrown /> : ""}</div>
-                    <div className={styles["circle-container"]}>
+                    <div className={styles["circle-container"]} style={{ backgroundColor: user.color }}>
                       <img
                         src={`${user.avatar}`}
                         alt={user.name}
