@@ -357,7 +357,7 @@ function App() {
                 },
                 {
                     path : "opportunity",
-                    element : <Opportunity title="Welcome to My Opportunity"/>
+                    element : <Opportunity/>
                 },
                 {
                     path : "learning-circle",
@@ -365,11 +365,11 @@ function App() {
                 },
                 {
                     path : "leaderboard",
-                    element : <Leaderboard title="Welcome to My Leaderboard"/>
+                    element : <Leaderboard/>
                 },
                 {
                     path : "inerest-group",
-                    element : <InterestGroupV2 title="Welcome to My InterestGroup" />
+                    element : <InterestGroupV2 />
                 }
             ]
         },

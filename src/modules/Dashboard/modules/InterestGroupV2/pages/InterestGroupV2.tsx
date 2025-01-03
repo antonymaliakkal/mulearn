@@ -8,7 +8,7 @@ import cybersecurity from '../assets/cybersecurity.png';
 import mobiledev from '../assets/mobiledev.png';
 import gamedev from '../assets/gamedev.png';
 import datascience from '../assets/datascience.png';
-import blockchain from '../assets/blockChain.png';
+import blockchain from '../assets/blockchain.png';
 
 interface GridItem {
   id: number;
