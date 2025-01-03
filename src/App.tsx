@@ -353,7 +353,7 @@ function App() {
             children : [
                 {
                     path : "profile",
-                    element : <ProfileV2 />
+                    element : <ProfileV3 />
                 },
                 {
                     path : "opportunity",

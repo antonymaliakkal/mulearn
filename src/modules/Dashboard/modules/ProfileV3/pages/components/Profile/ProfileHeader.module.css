@@ -1,0 +1,9 @@
+/* ProfileHeader.module.css */
+
+.container {
+    padding: 1.5rem; /* Equivalent to Tailwind p-6 */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Equivalent to Tailwind items-start */
+  }
+  

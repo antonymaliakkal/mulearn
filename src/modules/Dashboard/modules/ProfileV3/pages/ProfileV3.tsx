@@ -1,34 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import SearchBar from './components/Profile/SearchBar';
+import ProfileHeader from './components/Profile/ProfileHeader';
+import ProfileInfo from './components/Profile/ProfileInfo';
+import CompleteTasks from './components/Profile/CompleteTasks';
+import AttendanceGrid from './components/Profile/AttendanceGrid';
+import Leaderboard from './components/Profile/Leaderboard';
 
-interface Props {
-  // Define your props types here
-  title: string;
-}
+import styles from './ProvileV3.module.css';
 
-const ProfileV3: React.FC<Props> = ({ title }) => {
-  // State using hooks
-  const [count, setCount] = useState<number>(0);
+interface Props {}
 
-  // useEffect hook to mimic componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // This will run once after the initial render
-    console.log('Component mounted or updated');
-    
-    return () => {
-      // This will run when the component is unmounted or before it updates
-      console.log('Cleanup');
-    };
-  }, [count]); // Only runs when `count` changes
-
-  const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
+const ProfileV3: React.FC<Props> = () => {
+  const attendanceData = Array(100)
+    .fill(0)
+    .map(() => Math.random() > 0.3);
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+    <div className={styles.container}>
+
+      <main className={styles.main}>
+        <div className={styles.wrapper}>
+          {/* <div className={styles.header}>
+            <h1 className={styles.headerTitle}>Profile</h1>
+            <SearchBar />
+          </div> */}
+          <ProfileHeader
+            name="Edwin Emmanuel Roy"
+            stats={{
+              karmaPoints: 24.56,
+              avgKarma: 2.59,
+              ranking: 14458,
+            }}
+          />
+
+          <div className={styles.grid}>
+            <div className={`${styles.card} ${styles.card1}`}>
+              <hr className={styles.horizontalLine} />
+              <div>
+                <ProfileInfo
+                  institution="College of Engineering Trivandrum"
+                  careerPath="UI/UX Designer"
+                  interests={[
+                    'UI Design',
+                    'UI/UX',
+                    'Graphic Design',
+                    'Photoshop',
+                    'Figma',
+                    'Design Thinking',
+                  ]}
+                />
+              </div>
+            </div>
+
+            <div className={`${styles.card} ${styles.cardShortHeight} ${styles.card2}`}>
+              <CompleteTasks />
+            </div>
+
+            <div className={`${styles.card} ${styles.card3}`}>
+              <AttendanceGrid
+                attendance={attendanceData}
+                percentage={48}
+                totalSessions={124}
+              />
+            </div>
+
+            <div className={`${styles.card} ${styles.card4}`}>
+              <Leaderboard />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
