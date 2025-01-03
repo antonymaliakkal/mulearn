@@ -63,6 +63,7 @@ import Opportunity from "./modules/Dashboard/modules/Opportunity/pages/Opportuni
 import LearningCircleV3 from "./modules/Dashboard/modules/LearningCircleV3/pages/LearningCircleV3";
 import Leaderboard from "./modules/Dashboard/modules/Leaderboard/pages/Leaderboard";
 import InterestGroupV2 from "./modules/Dashboard/modules/InterestGroupV2/pages/InterestGroupV2";
+import DashboardRootLayoutV2 from "./modules/DashboardV2/layouts/DashboardRootLayoutV2";
 
 const Profile = lazy(
     () => import("./modules/Dashboard/modules/Profile/pages/Profile")
@@ -348,11 +349,11 @@ function App() {
         // { path: "register/select-community", element: <CommunityPage /> },
         {
             path : "/dev",
-            element : <DashboardRootLayout />,
+            element : <DashboardRootLayoutV2/> ,
             children : [
                 {
                     path : "profile",
-                    element : <ProfileV3 title="Welcome to My Profile"/>
+                    element : <ProfileV2 />
                 },
                 {
                     path : "opportunity",
