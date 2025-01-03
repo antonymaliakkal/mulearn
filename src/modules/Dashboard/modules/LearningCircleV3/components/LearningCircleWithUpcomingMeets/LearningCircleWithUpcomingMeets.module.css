@@ -1,0 +1,39 @@
+.section {
+    width: 1042px;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-bottom: 35px;
+}
+
+.sectionHeader {
+    width: 1042px;
+    height: 25px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25.2px;
+    color: #000000;
+    text-align: left;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 24px;
+    overflow-x: auto; 
+    padding-bottom: 10px; 
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.cardContainer::-webkit-scrollbar {
+    display: none; 
+}
+
+.card {
+    flex: 0 0 calc(33.33% - 16px); 
+    max-width: 300px; 
+}
