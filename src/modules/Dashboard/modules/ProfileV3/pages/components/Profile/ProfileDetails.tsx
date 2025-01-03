@@ -1,5 +1,6 @@
 import React from 'react';
 import { Edit2 } from 'lucide-react';
+import styles from './ProfileDetails.module.css';
 
 interface ProfileDetailsProps {
   institution: string;
@@ -9,32 +10,29 @@ interface ProfileDetailsProps {
 
 export default function ProfileDetails({ institution, careerPath, interests }: ProfileDetailsProps) {
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-6">
+    <div className={styles.space}>
+      <div className={styles.container}>
         <div>
-          <p className="text-sm text-gray-500 mb-1">Institution</p>
-          <p className="font-medium">{institution}</p>
+          <p className={styles.institution}>Institution</p>
+          <p className={styles.institutionName}>{institution}</p>
         </div>
-        <div className="text-right">
-          <p className="text-sm text-gray-500 mb-1">Career Path</p>
-          <p className="font-medium">{careerPath}</p>
+        <div className={styles.careerPathContainer}>
+          <p className={styles.careerPathLabel}>Career Path</p>
+          <p className={styles.careerPathValue}>{careerPath}</p>
         </div>
       </div>
 
       <div>
-        <div className="flex justify-end mb-4">
-          <button className="p-2 hover:bg-gray-50 rounded-full">
-            <Edit2 className="w-4 h-4 text-gray-400" />
+        <div className={styles.editButtonContainer}>
+          <button className={styles.editButton}>
+            <Edit2 className={styles.icon} />
           </button>
         </div>
         <div>
-          <p className="text-sm text-gray-500 mb-2">Interests</p>
-          <div className="flex flex-wrap ">
+          <p className={styles.interestsContainer}>Interests</p>
+          <div className={styles.interestsWrapper}>
             {interests.map((interest) => (
-              <span
-                key={interest}
-                className="px-3 py-1 bg-gray-50 rounded-full text-sm text-gray-600"
-              >
+              <span key={interest} className={styles.interest}>
                 {interest}
               </span>
             ))}

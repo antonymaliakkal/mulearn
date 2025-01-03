@@ -1,0 +1,25 @@
+/* ProfileStats.module.css */
+
+.container {
+    display: flex;
+    gap: 3rem; /* Equivalent to Tailwind gap-12 */
+  }
+  
+  .label {
+    font-size: 16px; /* Equivalent to Tailwind text-sm */
+    color: #000000; /* Equivalent to Tailwind text-gray-500 */
+    margin-bottom: 0.25rem; /* Equivalent to Tailwind mb-1 */
+  }
+  
+  .value {
+    font-weight: 600; /* Equivalent to Tailwind font-semibold */
+    font-size: 36px; /* Equivalent to Tailwind text-lg */
+    color: #000000;
+  }
+  
+  .valueGreen {
+    font-weight: 600; /* Equivalent to Tailwind font-semibold */
+    font-size: 36px; /* Equivalent to Tailwind text-lg */
+    color: #16a34a; /* Equivalent to Tailwind text-green-600 */
+  }
+  

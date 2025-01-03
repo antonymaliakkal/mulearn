@@ -1,16 +1,21 @@
 import React from 'react';
+import styles from './StatsCard.module.css';
 
 interface StatsCardProps {
   label: string;
   value: string;
-  valueColor?: string;
+  valueColor?: string; // Pass the CSS class name for custom colors
 }
 
-export default function StatsCard({ label, value, valueColor = 'text-gray-900' }: StatsCardProps) {
+export default function StatsCard({
+  label,
+  value,
+  valueColor = styles.textGray900, // Default to gray-900 equivalent class
+}: StatsCardProps) {
   return (
-    <div className="text-center">
-      <p className="text-sm text-gray-500">{label}</p>
-      <p className={`font-medium ${valueColor}`}>{value}</p>
+    <div className={styles.container}>
+      <p className={styles.label}>{label}</p>
+      <p className={`${styles.value} ${valueColor}`}>{value}</p>
     </div>
   );
 }

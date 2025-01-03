@@ -1,0 +1,31 @@
+/* SearchBar.module.css */
+
+.container {
+    position: relative;
+  }
+  
+  .input {
+    width: 400px;
+    padding: 0.625rem 2.5rem 0.625rem 0.625rem; /* Equivalent to Tailwind pl-10 pr-4 py-2.5 */
+    border-radius: 9999px; /* Equivalent to Tailwind rounded-full */
+    border: 1px solid #e5e7eb; /* Equivalent to Tailwind border-gray-200 */
+    font-size: 0.875rem; /* Equivalent to Tailwind text-sm */
+    outline: none; /* Equivalent to Tailwind focus:outline-none */
+    background-color: white; /* Equivalent to Tailwind bg-white */
+    color: #9ca3af; /* Equivalent to Tailwind placeholder-gray-400 */
+  }
+  
+  .input:focus {
+    border-color: #d1d5db; /* Equivalent to Tailwind focus:border-gray-300 */
+  }
+  
+  .icon {
+    position: absolute;
+    left: 0.75rem; /* Equivalent to Tailwind left-3 */
+    top: 50%; /* Equivalent to Tailwind top-1/2 */
+    transform: translateY(-50%); /* Equivalent to Tailwind -translate-y-1/2 */
+    width: 1rem; /* Equivalent to Tailwind w-4 */
+    height: 1rem; /* Equivalent to Tailwind h-4 */
+    color: #9ca3af; /* Equivalent to Tailwind text-gray-400 */
+  }
+  

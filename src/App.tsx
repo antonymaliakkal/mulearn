@@ -352,7 +352,7 @@ function App() {
             children : [
                 {
                     path : "profile",
-                    element : <ProfileV3 title="Welcome to My Profile"/>
+                    element : <ProfileV3 />
                 },
                 {
                     path : "opportunity",

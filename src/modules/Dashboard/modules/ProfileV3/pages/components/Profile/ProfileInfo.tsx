@@ -1,5 +1,6 @@
 import React from 'react';
-import ProfileDetails from './Profile/ProfileDetails';
+import ProfileDetails from './ProfileDetails';
+import styles from './ProfileInfo.module.css';
 
 interface ProfileInfoProps {
   institution: string;
@@ -9,7 +10,7 @@ interface ProfileInfoProps {
 
 export default function ProfileInfo({ institution, careerPath, interests }: ProfileInfoProps) {
   return (
-    <div className="p-6">
+    <div className={styles.container}>
       <ProfileDetails
         institution={institution}
         careerPath={careerPath}

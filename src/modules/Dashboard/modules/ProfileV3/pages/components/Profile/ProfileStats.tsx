@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ProfileStats.module.css';
 
 interface ProfileStatsProps {
   karmaPoints: number;
@@ -8,18 +9,18 @@ interface ProfileStatsProps {
 
 export default function ProfileStats({ karmaPoints, avgKarma, ranking }: ProfileStatsProps) {
   return (
-    <div className="flex gap-12">
+    <div className={styles.container}>
       <div>
-        <p className="text-sm text-gray-500 mb-1">Karma Points</p>
-        <p className="font-semibold text-lg">{karmaPoints.toFixed(2)}K</p>
+        <p className={styles.label}>Karma Points</p>
+        <p className={styles.value}>{karmaPoints.toFixed(2)}K</p>
       </div>
       <div>
-        <p className="text-sm text-gray-500 mb-1">Avg Karma/Month</p>
-        <p className="font-semibold text-lg">{avgKarma.toFixed(2)}K</p>
+        <p className={styles.label}>Avg Karma/Month</p>
+        <p className={styles.value}>{avgKarma.toFixed(2)}K</p>
       </div>
       <div>
-        <p className="text-sm text-gray-500 mb-1">Ranking</p>
-        <p className="font-semibold text-lg text-green-600">{ranking}</p>
+        <p className={styles.label}>Ranking</p>
+        <p className={styles.valueGreen}>{ranking}</p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Crown } from 'lucide-react';
+import styles from './LeaderboardCard.module.css';
 
 interface LeaderboardCardProps {
   name: string;
@@ -8,17 +9,22 @@ interface LeaderboardCardProps {
   barHeight: number;
 }
 
-export default function LeaderboardCard({ name, points, position, barHeight }: LeaderboardCardProps) {
+export default function LeaderboardCard({
+  name,
+  points,
+  position,
+  barHeight,
+}: LeaderboardCardProps) {
   return (
-    <div className="flex flex-col items-center relative">
+    <div className={styles.container}>
       {position === 1 && (
-        <Crown className="absolute -top-6 text-yellow-400 w-5 h-5" />
+        <Crown className={styles.crownIcon} />
       )}
-      <div className="w-10 h-10 rounded-full bg-gray-200 mb-2" />
-      <p className="text-white text-sm font-medium">{name}</p>
-      <p className="text-white/80 text-xs mb-2">{points}K</p>
+      <div className={styles.avatar} />
+      <p className={styles.name}>{name}</p>
+      <p className={styles.points}>{points}K</p>
       <div
-        className="w-14 rounded-t-lg bg-blue-400/80"
+        className={styles.bar}
         style={{ height: `${barHeight}px` }}
       />
     </div>
