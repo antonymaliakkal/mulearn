@@ -2,6 +2,7 @@ import React from 'react';
 import { FaRegClock } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import styles from './OpportunityCard.module.css';
+import googleImage from "../assets/google.png";
 
 interface Props {
   // Define your props types here
@@ -17,8 +18,13 @@ const OpportunityCard: React.FC<Props> = ({title,company,description,link,locati
 
   return (
     <div className={styles.card}>
-        <h1>{title}</h1>
-        <h2>{company}</h2>
+        <div className="title">
+            <img src={googleImage} />
+            <div className="title-text">
+                <h1>{title}</h1>
+                <h2>{company}</h2>
+            </div>
+        </div>
         <p>{description}</p>
         <div className="bottom-row">
             <div className="left">
