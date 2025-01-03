@@ -1,0 +1,105 @@
+.card{
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 45%;
+    min-width: 45%;
+    min-height: 220px;
+    max-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease;
+    margin-bottom: 16px;
+}
+ 
+.card:hover{
+    transform: translateY(-4px);
+}
+ 
+.title{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+ 
+.title img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+ .title_text{
+    text-align: start;
+ }
+.title_text h1{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+ 
+.title_text h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: #757575
+}
+ 
+.card p{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    max-height: 4.5em;
+    font-size: 14px;
+    color: #616161;
+    line-height: 1.5em;
+}
+ 
+.bottom_row{
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+ 
+.left{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+ 
+.location, .jobType{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #424242;
+}
+ 
+.right button{
+    background-color: #1a73e8;
+    border: none;
+    width: 150px;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+ 
+.right button:hover{
+    background: #1558b0;
+}
+ 
+.right button a{
+    color:#fff;
+    text-decoration: none;
+}

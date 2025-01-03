@@ -1,0 +1,91 @@
+.container {
+    padding: 1.25rem;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .headerTitle {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .viewAllButton {
+    font-size: 0.875rem;
+    color: #2563eb;
+  }
+
+  
+  .gradientBg {
+    position: relative;
+    height: 20rem;
+    background: linear-gradient(to right, #032052, #4C0239);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .entriesWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+  
+  .entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .crownIcon {
+    position: absolute;
+    top: -1.5rem;
+    color: #fbbf24;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .name {
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: -1rem;
+  }
+  
+  .points {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    /* margin-top: 1rem; */
+    transform: translateY(2.5rem);
+    color: black;
+    font-weight: bold;
+  }
+
+  .avatr1 {
+    background: #CCC1F0;
+  }
+  
+  .bar {
+    width: 3.5rem;
+    /* border-radius: 0.5rem; */
+    background: linear-gradient(180deg, #4BF0FF 0%, #FF8FE3 100%);
+  }
+  

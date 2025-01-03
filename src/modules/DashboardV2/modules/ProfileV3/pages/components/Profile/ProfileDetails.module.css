@@ -1,0 +1,89 @@
+/* ProfileDetails.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 1.5rem; /* Equivalent to Tailwind gap-6 */
+  }
+
+  .containerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .institution {
+    font-size: 1rem; /* Equivalent to Tailwind text-sm */
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 0.25rem; /* Equivalent to Tailwind mb-1 */
+  }
+  
+  .institutionName {
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400; /* Equivalent to Tailwind font-medium */
+  }
+  
+  .careerPathContainer {
+    text-align: left; /* Equivalent to Tailwind text-right */
+  }
+  
+  .careerPathLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .careerPathValue {
+    font-weight: 400;
+  }
+  
+  .editButtonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end; /* Equivalent to Tailwind justify-end */
+    margin-bottom: 1rem; /* Equivalent to Tailwind mb-4 */
+  }
+  
+  .editButton {
+    padding: 0.5rem; /* Equivalent to Tailwind p-2 */
+    border-radius: 50%; /* Equivalent to Tailwind rounded-full */
+    transition: background-color 0.2s;
+  }
+  
+  .editButton:hover {
+    background-color: #f9fafb; /* Equivalent to Tailwind hover:bg-gray-50 */
+  }
+  
+  .icon {
+    width: 1rem; /* Equivalent to Tailwind w-4 */
+    height: 1rem; /* Equivalent to Tailwind h-4 */
+    color: #9ca3af; /* Equivalent to Tailwind text-gray-400 */
+  }
+  
+  .interestsContainer {
+    font-size: 0.875rem; /* Equivalent to Tailwind text-sm */
+    color: #000000; /* Equivalent to Tailwind text-gray-500 */
+    margin-bottom: 0.5rem; /* Equivalent to Tailwind mb-2 */
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  .interestsWrapper {
+    display: flex;
+    flex-wrap: wrap; /* Equivalent to Tailwind flex-wrap */
+    gap: 0.5rem;
+  }
+  
+  .interest {
+    padding: 0.5rem 0.75rem; /* Equivalent to Tailwind px-3 py-1 */
+    /* background-color: #ffffff; Equivalent to Tailwind bg-gray-50 */
+    border: 2px solid grey;
+    border-radius: 9999px; /* Equivalent to Tailwind rounded-full */
+    font-size: 0.875rem;
+    color: #4b5563; /* Equivalent to Tailwind text-gray-600 */
+  }
+  

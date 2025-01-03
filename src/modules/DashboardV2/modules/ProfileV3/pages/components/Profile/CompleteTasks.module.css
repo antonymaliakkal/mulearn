@@ -1,0 +1,83 @@
+.percentage {
+  width : 5rem;
+  height: 5rem;
+}
+
+.container {
+    padding: 1.25rem;
+  }
+  
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .headerText {
+    margin-bottom: 0.25rem;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .subText {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .actionWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .circleWrapper {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .svgCircle {
+    transform: rotate(-90deg);
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .circleBackground {
+    stroke-width: 3;
+    stroke: currentColor;
+    fill: transparent;
+  }
+  
+  .circleProgress {
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke: currentColor;
+    fill: transparent;
+    stroke-dasharray: 125.6;
+    stroke-dashoffset: 12.56;
+  }
+
+  .circlePercentage text {
+    transform: translate(-25px, 10px);
+  }
+  
+  .CircularProgressbar-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    transform: translate(-25px, 10px);
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .chevronIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #d1d5db;
+  }
+  
