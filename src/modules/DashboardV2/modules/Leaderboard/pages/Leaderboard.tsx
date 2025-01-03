@@ -23,6 +23,7 @@ const Leaderboard: React.FC = () => {
   const [myRank, setMyRank] = useState<MyRank>({ name: "", points: 0, rank: 0 });
   const [numberOfPieces, setNumberOfPieces] = useState<number>(500);
 
+
   // Create a ref for the champions section to calculate its size
   const championsRef = useRef<HTMLDivElement>(null);
 

@@ -44,24 +44,4 @@ const SideNavBarV2 = ({ activeButton, onButtonClick, buttons }: SideNavBarProps)
 }
 
 
-// const SideNavBarV2 = ({ activeButton, onButtonClick, buttons }: SideNavBarProps) => {
-//   return (
-//     <nav className={styles.sidebar}>
-//       <div className={styles.mulearn_brand}>
-//         <MulearnBrand />
-//       </div>
-//       {buttons.map((button) => (
-//         <div
-//           key={button.id}
-//           className={`${styles.button} ${activeButton === button.id ? styles.buttonActive : ''}`}
-//           onClick={() => onButtonClick(button)}
-//         >
-//           <img src={button.icon} alt={button.title} className={styles.buttonIcon} />
-//           <span className={styles.buttonText}>{button.title}</span>
-//         </div>
-//       ))}
-//     </nav>
-//   )
-// }
-
 export default SideNavBarV2;

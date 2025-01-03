@@ -1,14 +1,12 @@
 /* Outer container */
 .outerContainer {
     width: 100%;
-        /* Full width of the screen */
-        max-width: 1200px;
-        /* Optional: Set a max-width to prevent it from becoming too wide */
-        background-color: #ffffff;
-        border-radius: 16px;
-        padding: 24px;
-        margin: 40px auto;
-        border: 1px solid #787878;
+    /* Full width of the screen */
+    max-width: 1200px;
+    /* Optional: Set a max-width to prevent it from becoming too wide */
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
 }
 
 /* Grid title */
@@ -22,6 +20,8 @@
 
 /* Grid layout */
 .gridContainer {
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -29,7 +29,7 @@
 
 /* Individual grid item */
 .gridItem {
-display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

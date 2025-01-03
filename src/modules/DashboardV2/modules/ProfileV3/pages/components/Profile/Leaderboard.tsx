@@ -1,12 +1,15 @@
 import React from 'react';
 import { Crown } from 'lucide-react';
 import styles from './Leaderboard.module.css';
+import Edwin from '../../../../../../DashboardV2/assets/images/Avatars/Edwin.png'
+import Anna from '../../../../../../DashboardV2/assets/images/Avatars/Anna.png'
+import Alexa from '../../../../../../DashboardV2/assets/images/Avatars/Alexa.png'
 
 export default function Leaderboard() {
   const entries = [
-    { name: 'Edwin', points: 45.5, position: 1, height: 120 },
-    { name: 'Anna', points: 45.5, position: 2, height: 100 },
-    { name: 'Alma', points: 45.5, position: 3, height: 80 },
+    { name: 'Anna', points: 45.5, position: 2, height: 100 , src : Anna, color: '#B4E5BC' },
+    { name: 'Edwin', points: 45.5, position: 1, height: 150 , src : Edwin, color: '#CCC1F0' },
+    { name: 'Alexa', points: 45.5, position: 3, height: 80 , src : Alexa, color: '#F3ABA7'},
   ];
 
   return (
@@ -22,7 +25,9 @@ export default function Leaderboard() {
               {entry.position === 1 && (
                 <Crown className={styles.crownIcon} />
               )}
-              <div className={styles.avatar} />
+              <div className={styles.avatar} style={{ backgroundColor: entry.color}}>
+                <img className={styles[`avatar${entry.position}`]} src={entry.src} alt={entry.name.charAt(0)} />
+              </div>
               <p className={styles.name}>{entry.name}</p>
               <p className={styles.points}>{entry.points}K</p>
               <div

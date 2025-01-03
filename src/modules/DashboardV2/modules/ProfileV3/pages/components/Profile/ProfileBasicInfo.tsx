@@ -1,6 +1,8 @@
 import React from 'react';
 import { User } from 'lucide-react';
 import './ProfileBasicInfo.css'; 
+import Avatar from '../assets/Avatar.png'
+
 
 interface ProfileBasicInfoProps {
   name: string;

@@ -11,7 +11,13 @@ interface ProfileDetailsProps {
 export default function ProfileDetails({ institution, careerPath, interests }: ProfileDetailsProps) {
   return (
     <div className={styles.space}>
+        <div className={styles.editButtonContainer}>
+          <button className={styles.editButton}>
+            <Edit2 className={styles.icon} />
+          </button>
+        </div>
       <div className={styles.container}>
+      <div className={styles.containerTop}>
         <div>
           <p className={styles.institution}>Institution</p>
           <p className={styles.institutionName}>{institution}</p>
@@ -22,12 +28,6 @@ export default function ProfileDetails({ institution, careerPath, interests }: P
         </div>
       </div>
 
-      <div>
-        <div className={styles.editButtonContainer}>
-          <button className={styles.editButton}>
-            <Edit2 className={styles.icon} />
-          </button>
-        </div>
         <div>
           <p className={styles.interestsContainer}>Interests</p>
           <div className={styles.interestsWrapper}>

@@ -18,11 +18,12 @@
     font-size: 0.875rem;
     color: #2563eb;
   }
+
   
   .gradientBg {
     position: relative;
     height: 20rem;
-    background: linear-gradient(to bottom, #6b21a8, #5b21b6);
+    background: linear-gradient(to right, #032052, #4C0239);
     border-radius: 1rem;
     padding: 1rem;
   }
@@ -33,9 +34,8 @@
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-end;
-    padding-bottom: 1rem;
   }
   
   .entry {
@@ -54,10 +54,11 @@
   }
   
   .avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.2);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
     margin-bottom: 0.5rem;
   }
   
@@ -65,17 +66,26 @@
     color: #ffffff;
     font-size: 0.875rem;
     font-weight: 500;
+    margin-bottom: -1rem;
   }
   
   .points {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
+    /* margin-top: 1rem; */
+    transform: translateY(2.5rem);
+    color: black;
+    font-weight: bold;
+  }
+
+  .avatr1 {
+    background: #CCC1F0;
   }
   
   .bar {
     width: 3.5rem;
-    border-radius: 0.5rem;
-    background-color: rgba(59, 130, 246, 0.8);
+    /* border-radius: 0.5rem; */
+    background: linear-gradient(180deg, #4BF0FF 0%, #FF8FE3 100%);
   }
   

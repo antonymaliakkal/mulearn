@@ -1,0 +1,34 @@
+import React from 'react';
+import { ChevronRight } from 'lucide-react';
+import styles from './CompleteTasks.module.css';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+
+export default function CompleteTasks() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+      <div className={styles.actionWrapper}>
+          <div className={styles.circleWrapper}>
+            <CircularProgressbar
+              value={80}
+              text={`${80}%`}
+              className={styles.circlePercentage}
+              styles={buildStyles({
+                textSize: '24px',
+                pathColor: '#0B7C31',
+                textColor: '#22c55e',
+                trailColor: '#e6e6e6'
+              })}
+            />
+          </div>
+          <ChevronRight className={styles.chevronIcon} />
+        </div>
+        <div>
+          <h3 className={styles.headerText}>Complete Tasks</h3>
+          <p className={styles.subText}>Learn more about journey completing tasks</p>
+        </div>
+        
+      </div>
+    </div>
+  );
+}

@@ -58,11 +58,11 @@ import LCReport from "./modules/Dashboard/modules/LearningCircleV2/pages/LCRepor
 import UserInterest from "./modules/Common/Authentication/pages/Onboarding/UserInterest/UserInterest";
 import PathFinder from "./modules/Common/Authentication/pages/Onboarding/PathFinder/PathFinder";
 import RegisterPage from "./modules/Common/Authentication/pages/Onboarding/Register/Register";
-import ProfileV3 from "./modules/Dashboard/modules/ProfileV3/pages/ProfileV3";
-import Opportunity from "./modules/Dashboard/modules/Opportunity/pages/Opportunity";
-import LearningCircleV3 from "./modules/Dashboard/modules/LearningCircleV3/pages/LearningCircleV3";
-import Leaderboard from "./modules/Dashboard/modules/Leaderboard/pages/Leaderboard";
-import InterestGroupV2 from "./modules/Dashboard/modules/InterestGroupV2/pages/InterestGroupV2";
+import ProfileV3 from "./modules/DashboardV2/modules/ProfileV3/pages/ProfileV3";
+import Opportunity from "./modules/DashboardV2/modules/Opportunity/pages/Opportunity";
+import LearningCircleV3 from "./modules/DashboardV2/modules/LearningCircleV3/pages/LearningCircleV3";
+import Leaderboard from "./modules/DashboardV2/modules/Leaderboard/pages/Leaderboard";
+import InterestGroupV2 from "./modules/DashboardV2/modules/InterestGroupV2/pages/InterestGroupV2";
 import DashboardRootLayoutV2 from "./modules/DashboardV2/layouts/DashboardRootLayoutV2";
 
 const Profile = lazy(
@@ -361,7 +361,7 @@ function App() {
                 },
                 {
                     path : "learning-circle",
-                    element : <LearningCircleV3 title="Welcome to My LearningCircle"/>
+                    element : <LearningCircleV3/>
                 },
                 {
                     path : "leaderboard",

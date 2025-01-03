@@ -34,6 +34,7 @@
   color: #6b7280;
   font-weight: 500;
   transition: all 0.2s ease;
+  margin-bottom: 0.75rem;
 }
 
 .button:hover {
