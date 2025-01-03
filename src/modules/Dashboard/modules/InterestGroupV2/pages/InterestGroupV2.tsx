@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './InterestGroupV2.module.css';
+import InterestItem from '../components/InterestItem';
 
 import webdev from '../assets/webdev.png';
 import ai from '../assets/ai.png';
@@ -14,7 +15,6 @@ interface GridItem {
   name: string;
   imageUrl: string;
 }
-
 
 const gridData: GridItem[] = [
   { id: 1, name: 'Web Development', imageUrl: webdev },
@@ -34,10 +34,11 @@ const GridPage: React.FC = () => {
       <h2 className={styles.gridTitle}>Software</h2>
       <div className={styles.gridContainer}>
         {gridData.map((item) => (
-          <div key={item.id} className={styles.gridItem}>
-            <img src={item.imageUrl} alt={item.name} className={styles.gridImage} />
-            <p className={styles.gridName}>{item.name}</p>
-          </div>
+          <InterestItem
+            key={item.id}
+            imageUrl={item.imageUrl}
+            name={item.name}
+          />
         ))}
       </div>
     </div>
