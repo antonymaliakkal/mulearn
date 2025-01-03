@@ -18,26 +18,26 @@ const OpportunityCard: React.FC<Props> = ({title,company,description,link,locati
 
   return (
     <div className={styles.card}>
-        <div className="title">
+        <div className={styles.title}>
             <img src={googleImage} />
-            <div className="title-text">
+            <div className={styles.title_text}>
                 <h1>{title}</h1>
                 <h2>{company}</h2>
             </div>
         </div>
         <p>{description}</p>
-        <div className="bottom-row">
-            <div className="left">
-                <div className="location">
+        <div className={styles.bottom_row}>
+            <div className={styles.left}>
+                <div className={styles.location}>
                     <CiLocationOn/>
                     <span>{location}</span>
                 </div>
-                <div className="jobTy">
+                <div className={styles.jobType}>
                     <FaRegClock/>
                     <span>{jobType}</span>
                 </div>
             </div>
-            <div className="right">
+            <div className={styles.right}>
                 <button><a href={link}>Apply</a></button>
             </div>
         </div>
