@@ -1,36 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import styles from './InterestGroupV2.module.css';
+import InterestItem from '../components/InterestItem';
 
-interface Props {
-  // Define your props types here
-  title: string;
+import webdev from '../assets/webdev.png';
+import ai from '../assets/ai.png';
+import cybersecurity from '../assets/cybersecurity.png';
+import mobiledev from '../assets/mobiledev.png';
+import gamedev from '../assets/gamedev.png';
+import datascience from '../assets/datascience.png';
+import blockchain from '../assets/blockChain.png';
+
+interface GridItem {
+  id: number;
+  name: string;
+  imageUrl: string;
 }
 
-const InterestGroupV2: React.FC<Props> = ({ title }) => {
-  // State using hooks
-  const [count, setCount] = useState<number>(0);
+const gridData: GridItem[] = [
+  { id: 1, name: 'Web Development', imageUrl: webdev },
+  { id: 2, name: 'Artificial Intelligence', imageUrl: ai },
+  { id: 3, name: 'Cybersecurity', imageUrl: cybersecurity },
+  { id: 4, name: 'Mobile Development', imageUrl: mobiledev },
+  { id: 5, name: 'Game Development', imageUrl: gamedev },
+  { id: 6, name: 'Data Science', imageUrl: datascience },
+  { id: 7, name: 'Blockchain', imageUrl: blockchain },
+  { id: 8, name: 'Game Development', imageUrl: gamedev },
+  { id: 9, name: 'Data Science', imageUrl: datascience },
+];
 
-  // useEffect hook to mimic componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // This will run once after the initial render
-    console.log('Component mounted or updated');
-    
-    return () => {
-      // This will run when the component is unmounted or before it updates
-      console.log('Cleanup');
-    };
-  }, [count]); // Only runs when `count` changes
-
-  const incrementCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
+const GridPage: React.FC = () => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>Current count: {count}</p>
-      <button onClick={incrementCount}>Increment</button>
+    <div className={styles.outerContainer}>
+      <h2 className={styles.gridTitle}>Software</h2>
+      <div className={styles.gridContainer}>
+        {gridData.map((item) => (
+          <InterestItem
+            key={item.id}
+            imageUrl={item.imageUrl}
+            name={item.name}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default InterestGroupV2;
+export default GridPage;
