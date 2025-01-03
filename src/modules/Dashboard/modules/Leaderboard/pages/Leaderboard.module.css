@@ -248,56 +248,64 @@ tr:hover {
 }
 
 /* Media query for smaller screens (845px x 644px or less) */
-@media (max-width: 845px) and (max-height: 644px) {
-  .champions-header h2 {
-    font-size: 80px;
-  }
-
+/* Media query for very small screens (below 484px) */
+@media (max-width: 484px) {
   .champions-section {
     height: 20rem;
-    padding: 15px;
+    padding: 10px;
+  }
+
+  .champions-header h2 {
+    font-size: 36px;
   }
 
   .top-3 {
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-top: 20px;
   }
 
   .circle-container {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     top: -20px;
   }
 
   .champion-avatar {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .bar-container {
-    width: 50px;
-    height: 150px;
-  }
-
-  .champion-name {
-    font-size: 12px;
-    transform: translateY(-20px);
+    width: 40px;
+    height: 120px;
   }
 
   .bar-points {
-    font-size: 0.7rem;
-    transform: translateY(25px);
+    font-size: 0.6rem;
+    transform: translateY(20px);
   }
 
-  .leaderboard-table {
-    padding: 15px;
+  .champion-name {
+    font-size: 10px;
+    transform: translateY(-15px);
   }
 
-  th, td {
-    font-size: 12px;
+  .leaderboard-header h1 {
+    font-size: 20px;
   }
 
   .search-bar input {
-    width: 250px;
+    width: 90%;
     font-size: 12px;
+  }
+
+  th,
+  td {
+    font-size: 9px;
+    padding: 8px;
+  }
+
+  .leaderboard-table {
+    padding: 10px;
   }
 }
