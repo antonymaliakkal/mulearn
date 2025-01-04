@@ -5,12 +5,12 @@ import ChampionCrown from "../../../assets/svg/ChampionCrown";
 import EdwinAvatar from "../../../assets/images/Avatars/Edwin.png";
 import AnnaAvatar from "../../../assets/images/Avatars/Anna.png";
 import AlexaAvatar from "../../../assets/images/Avatars/Alexa.png";
-import { getProfile } from "../service/Leaderboardservice";
+import { getLeaderboard, getMyRank } from "../service/Leaderboardservice";
 
 // Define types for the state objects
 interface User {
-  name: string;
-  points: number;
+  full_name: string;
+  total_karma: number;
   avatar: string;
   color: string;
 }
@@ -22,109 +22,40 @@ interface MyRank extends User {
 const Leaderboard: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [rankingData, setRankingData] = useState<User[]>([]);
-  const [myRank, setMyRank] = useState<MyRank>({ name: "", points: 0, rank: 0 });
+  const [myRank, setMyRank] = useState<MyRank>({ full_name: "", total_karma: 0, rank: 0 , avatar: '', color: ''});
   const [numberOfPieces, setNumberOfPieces] = useState<number>(500);
-
+  const avatarIndex = [EdwinAvatar,AnnaAvatar,AlexaAvatar];
 
   // Create a ref for the champions section to calculate its size
   const championsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
 
-    getProfile();
+    const fetchData = async () => {
+      let data: User[] = [];
 
-    const fetchData = () => {
-      const data: User[] = [
-        {
-          name: "Edwin Emmanuel Roy", points: 50000, avatar: EdwinAvatar,
-          color: "#CCC1F0"
-        },
-        {
-          name: "Anna Hathaway", points: 40000, avatar: AnnaAvatar,
-          color: "#B4E5BC"
-        },
-        {
-          name: "Alexa Simpson", points: 30000, avatar: AlexaAvatar,
-          color: "#F3ABA7"
-        },
-        {
-          name: "Albert Peter Jose", points: 12000, avatar: "",
-          color: ""
-        },
-        {
-          name: "John Doe", points: 11000, avatar: "",
-          color: ""
-        },
-        {
-          name: "Jane Smith", points: 10000, avatar: "",
-          color: ""
-        },
-        {
-          name: "Michael Johnson", points: 9500, avatar: "",
-          color: ""
-        },
-        {
-          name: "Emily Davis", points: 9000, avatar: "",
-          color: ""
-        },
-        {
-          name: "Chris Brown", points: 8500, avatar: "",
-          color: ""
-        },
-        {
-          name: "Jessica Wilson", points: 8000, avatar: "",
-          color: ""
-        },
-        {
-          name: "Daniel Garcia", points: 7800, avatar: "",
-          color: ""
-        },
-        {
-          name: "Sarah Martinez", points: 7600, avatar: "",
-          color: ""
-        },
-        {
-          name: "David Lee", points: 7400, avatar: "",
-          color: ""
-        },
-        {
-          name: "Laura Taylor", points: 7200, avatar: "",
-          color: ""
-        },
-        {
-          name: "James Anderson", points: 7000, avatar: "",
-          color: ""
-        },
-        {
-          name: "Sophia Thomas", points: 6800, avatar: "",
-          color: ""
-        },
-        {
-          name: "William Jackson", points: 6600, avatar: "",
-          color: ""
-        },
-        {
-          name: "Olivia White", points: 6400, avatar: "",
-          color: ""
-        },
-        {
-          name: "Benjamin Harris", points: 6200, avatar: "",
-          color: ""
-        },
-        {
-          name: "Isabella Martin", points: 6000, avatar: "",
-          color: ""
-        },
-      ];
+      try {
+        const response = await getLeaderboard();
+        if(response.length > 0){
+          data = response;
+        }
+      } catch (error) {
+        console.log(error);
+      }
 
-      const myData: User = {
-        name: "You", points: 6000, avatar: "",
-        color: ""
-      };
+      getMyRank().then((value)=>{
+        setMyRank({full_name: "You", total_karma: value.karma, rank: value.rank, avatar: '', color: ''});
+      })
 
-      const updatedData = [myData, ...data];
-      const sortedData = updatedData.sort((a, b) => b.points - a.points);
-      const myRankIndex = sortedData.findIndex((user) => user.name === "You");
+      // const myData: User = {
+      //   full_name: "You", total_karma: myKarma, avatar: "",
+      //   color: ""
+      // };
+
+      
+      const updatedData = [...data];
+      const sortedData = updatedData.sort((a, b) => b.total_karma - a.total_karma);
+      const myRankIndex = sortedData.findIndex((user) => user.full_name === "You");
 
       setUsers(sortedData);
       setRankingData(sortedData.slice(0, 3)); // Top 3
@@ -149,7 +80,7 @@ const Leaderboard: React.FC = () => {
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
-  const maxPoints = rankingData[0]?.points || 1;
+  const maxPoints = rankingData[0]?.total_karma || 1;
 
   // Get dimensions of the champions section
   const championsBoxDimensions = championsRef.current
@@ -186,27 +117,27 @@ const Leaderboard: React.FC = () => {
                     index === 0 ? styles["bar-1"] : index === 1 ? styles["bar-2"] : styles["bar-3"]
                   }`}
                   style={{
-                    height: `${(user.points / maxPoints) * 100}%`,
+                    height: `${(user.total_karma / maxPoints) * 100}%`,
                   }}
                 >
                   <div className={styles["bar-info"]}>
                     <div className={styles["crown"]}>{index === 0 ? <ChampionCrown /> : ""}</div>
                     <div className={styles["circle-container"]} style={{ backgroundColor: user.color }}>
-                      <img
-                        src={`${user.avatar}`}
-                        alt={user.name}
+                        <img
+                        src={avatarIndex[index]}
+                        alt={user.full_name}
                         className={styles["champion-avatar"]}
                         onError={(event) => {
-                          (event.target as HTMLImageElement).src = `https://via.placeholder.com/50?text=${user.name.charAt(
+                          (event.target as HTMLImageElement).src = `https://via.placeholder.com/50?text=${user.full_name.charAt(
                             0
                           )}`; // Set a placeholder if avatar fails to load
                         }}
                       />
                     </div>
-                    <p className={styles["champion-name"]}>{user.name.split(" ")[0]}</p>
+                    {/* <p className={styles["champion-name"]}>{user.name.split(" ")[0]}</p> */}
                   </div>
                   <span className={styles["bar-points"]}>
-                    {user.points ? user.points.toLocaleString() : "0"}
+                    {user.total_karma ? user.total_karma.toLocaleString() : "0"}
                   </span>
                 </div>
               </div>
@@ -237,8 +168,8 @@ const Leaderboard: React.FC = () => {
               </tr>
               <tr className={styles["user-rank"]}>
                 <td className={styles["other-rank"]}>#{myRank.rank}</td>
-                <td>{myRank.name}</td>
-                <td>{myRank.points ? myRank.points.toLocaleString() : "0"} Points</td>
+                <td>{myRank.full_name}</td>
+                <td>{myRank.total_karma ? myRank.total_karma.toLocaleString() : "0"} Points</td>
               </tr>
               <tr>
                 <td></td>
@@ -250,13 +181,13 @@ const Leaderboard: React.FC = () => {
               </tr>
               {/* Other users */}
               {users.map((user, index) =>
-                user.name !== "You" ? (
+                user.full_name !== "You" ? (
                   <tr key={index}>
                     <td className={index < 3 ? styles["top3-rank"] : styles["other-rank"]}>
                       #{index + 1}
                     </td>
-                    <td>{user.name}</td>
-                    <td>{user.points ? user.points.toLocaleString() : "0"} Points</td>
+                    <td>{user.full_name}</td>
+                    <td>{user.total_karma ? user.total_karma.toLocaleString() : "0"} Points</td>
                   </tr>
                 ) : null
               )}

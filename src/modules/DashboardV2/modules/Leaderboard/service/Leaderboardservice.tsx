@@ -1,10 +1,37 @@
 import { reqInstance } from "../../../services/baseReqInstance";
-import { LeaderboardRoutes } from "../../../services/dasboardEndpoints";
+import { LeaderboardRoutes, ProfileRoutes } from "../../../services/dasboardEndpoints";
 
-export const getProfile = async () => {
+interface User {
+    full_name: string;
+    total_karma: number;
+    avatar: string;
+    color: string;
+  }
+
+export const getLeaderboard = async () : Promise<User[]> => {
     try {
-        const response = await reqInstance.get(LeaderboardRoutes.baseDetails)
-        console.log(response);
+        const response = await reqInstance.get(LeaderboardRoutes.baseDetails);
+        const data = response.data;
+        if(data.response != null){
+            return data.response;
+        }else{
+            console.log("Invalid response");
+            return [];
+        }
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+}
+
+export const getMyRank = async () : Promise<any> =>{
+    try {
+        const response = await reqInstance.get(ProfileRoutes.userProfile+"/");
+        let myRankDetails : any = {};
+        myRankDetails['rank'] = response.data.response.rank;
+        myRankDetails['karma'] = response.data.response.karma;
+        return myRankDetails;
+
     } catch (error) {
         console.log(error);
     }
