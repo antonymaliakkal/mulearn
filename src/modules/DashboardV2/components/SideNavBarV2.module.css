@@ -2,7 +2,7 @@
 
 /* General Sidebar Styles */
 .sidebar {
-  position: fixed;
+  position: default;
   top: 0;
   left: 0;
   width: 250px;
@@ -95,7 +95,7 @@
 
 /* Left Arrow Button (for collapsing sidebar) */
 .toggle_arrow {
-  position: absolute;
+  position: fixed;
   top: 50%;
   right: -15px;
   transform: translateY(-50%);
@@ -104,7 +104,7 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  display: flex;
+  display: none; /* Hidden by default */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -126,6 +126,7 @@
 @media (max-width: 830px) {
   .sidebar {
     width: 200px;
+    position:fixed;
   }
 
   .menu_btn {
@@ -142,7 +143,7 @@
 
   /* When Sidebar is collapsed */
   .toggle_arrow {
-    display: block;
+    display: flex; /* Show the arrow button on mobile */
   }
 
   /* Hamburger Menu */
@@ -167,4 +168,3 @@ body {
   gap: 10px;
   padding: 20px;
 }
-
