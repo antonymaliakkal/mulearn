@@ -1,21 +1,14 @@
+import { useState, useEffect } from "react";
 import { MuButton } from "@/MuLearnComponents/MuButtons/MuButton";
 import styles from "./SideNavBarV2.module.css";
 import MulearnBrand from "../assets/svg/MulearnBrand";
-import ProfileImage from "../assets/svg/ProfileImage";
-import InterestGroupsImage from "../assets/svg/InterestGroupsImage";
-import LearningCirclesImage from "../assets/svg/LearningCirclesImage";
-import LeaderboardImage from "../assets/svg/LeaderboardImage";
-import OpportunityImage from "../assets/svg/OpportunityImage";
-import NotificationsImages from "../assets/svg/NotificationsImage";
-import SettingsImage from "../assets/svg/SettingsImage";
 
 interface SidebarButton {
-    id : string;
-    url : string,
-    title : string,
-    icon : JSX.Element
-};  
-
+  id: string;
+  url: string;
+  title: string;
+  icon: JSX.Element;
+}
 
 interface SideNavBarProps {
   activeButton: string;
@@ -23,25 +16,72 @@ interface SideNavBarProps {
   buttons: SidebarButton[];
 }
 
-const SideNavBarV2 = ({ activeButton, onButtonClick, buttons }: SideNavBarProps) => {
-  return (
-    <nav className={styles.sidebar}>
-      <div className={styles.mulearn_brand}>
-        <MulearnBrand />
-      </div>
-      {buttons.map((button) => (
-        <MuButton
-          text={button.title}
-          icon={button.icon}
-          key={button.id}
-          className={`${styles.button} ${activeButton === button.id ? styles.buttonActive : ''
-            }`}
-          onClick={() => onButtonClick(button)}
-        />
-      ))}
-    </nav>
-  )
-}
+const SideNavBarV2 = ({
+  activeButton,
+  onButtonClick,
+  buttons,
+}: SideNavBarProps) => {
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 830);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(!isCollapsed);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 830) {
+        setIsCollapsed(true);
+        setIsSidebarVisible(false);
+      } else {
+        setIsCollapsed(false);
+        setIsSidebarVisible(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
+
+  return (
+    <>
+      {/* Hamburger Menu */}
+      {isCollapsed && !isSidebarVisible && (
+        <div className={styles.menu_btn} onClick={toggleSidebar}>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
+        </div>
+      )}
+
+      {/* Sidebar */}
+      <nav
+        className={`${styles.sidebar} ${
+          isSidebarVisible ? styles.sidebarVisible : styles.sidebarHidden
+        }`}
+      >
+        <div className={styles.mulearn_brand}>
+          <MulearnBrand />
+        </div>
+        {buttons.map((button) => (
+          <MuButton
+            text={button.title}
+            icon={button.icon}
+            key={button.id}
+            className={`${styles.button} ${
+              activeButton === button.id ? styles.buttonActive : ""
+            }`}
+            onClick={() => onButtonClick(button)}
+          />
+        ))}
+
+        {/* Left Arrow Button */}
+        {isSidebarVisible && (
+          <div className={styles.toggle_arrow} onClick={toggleSidebar}>
+            <i className="fas fa-chevron-left"></i>
+          </div>
+        )}
+      </nav>
+    </>
+  );
+};
 
 export default SideNavBarV2;

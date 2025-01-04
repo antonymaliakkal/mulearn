@@ -1,8 +1,10 @@
 export const BASEPATH = "https://dev.mulearn.org/api/v1"
 
 export const ProfileRoutes = {
-    userProfile : "/dashboard/profile/user-profile",
-    leaderBoard : "/leaderboard/students/"
+    userInfo: "/dashboard/user/info/",
+    userProfile : "/dashboard/profile/user-profile/",
+    leaderBoard : "/leaderboard/students/",
+    colleges: "/register/colleges/"
 }
 
 export const LeaderboardRoutes = {
