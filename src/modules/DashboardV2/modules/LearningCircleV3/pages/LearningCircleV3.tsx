@@ -1,40 +1,93 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AllLearningCircles from "../components/AllLearningCircles/AllLearningCircles";
 import LearningCircleWithUpcomingMeets from "../components/LearningCircleWithUpcomingMeets/LearningCircleWithUpcomingMeets";
+import { getLearningCircles } from "../service/LearningCircleService";
 import styles from "./LearningCircleV3.module.css";
 
-// Static image import
-import Event1 from "../../../assets/images/Events/Event1.png";
-import Event2 from "../../../assets/images/Events/Event2.png";
-import Event3 from "../../../assets/images/Events/Event3.png";
-import Event4 from "../../../assets/images/Events/Event4.png";
+interface Event {
+    image: string;
+    title: string;
+    subtitle: string;
+    date: string;
+    time: string;
+    location: string;
+    joinedText: string;
+}
+
+interface Circle {
+    image: string;
+    title: string;
+    subtitle: string;
+    joinedText: string;
+}
 
 const LearningCircleV3: React.FC = () => {
-  const eventImages = [Event1, Event2, Event3, Event4];
+    const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+    const [allCircles, setAllCircles] = useState<Circle[]>([]);
 
-  const upcomingEvents = eventImages.map((image, index) => ({
-    image,
-    title: `Event ${index + 1}`,
-    subtitle: "College of Engineering Trivandrum",
-    date: `Jan ${15 + index}`,
-    time: "10:00 AM",
-    location: "CET Main Hall",
-    joinedText: `${5 + index} people you might know have joined`,
-  }));
+    useEffect(() => {
+        const fetchLearningCircles = async () => {
+            try {
+                const response = await getLearningCircles();
 
-  const allEvents = eventImages.map((image, index) => ({
-    image,
-    title: `All Event ${index + 1}`,
-    subtitle: "College of Engineering Trivandrum",
-    joinedText: `${2 + index} people you might know have joined`,
-  }));
+                if (
+                    response &&
+                    response.hasError === false &&
+                    response.response
+                ) {
+                    const events: Event[] = response.response
+                        .filter(
+                            circle =>
+                                circle.next_meetup &&
+                                circle.next_meetup.is_scheduled
+                        )
+                        .map(circle => ({
+                            image: "path/to/default/image.png", // Replace with a valid image or logic to determine the image
+                            title: circle.next_meetup.title || "Untitled Event",
+                            subtitle: circle.ig || "No Interest Group",
+                            date: new Date(
+                                circle.next_meetup.meet_time
+                            ).toLocaleDateString(),
+                            time: new Date(
+                                circle.next_meetup.meet_time
+                            ).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit"
+                            }),
+                            location:
+                                circle.next_meetup.meet_place ||
+                                "No Location Specified",
+                            joinedText: `${
+                                circle.recurrence || 0
+                            } people you might know have joined`
+                        }));
 
-  return (
-    <div className={styles.mainBody}>
-      <LearningCircleWithUpcomingMeets events={upcomingEvents} />
-      <AllLearningCircles circles={allEvents} />
-    </div>
-  );
+                    const circles: Circle[] = response.response.map(circle => ({
+                        image: "path/to/default/image.png", // Replace with a valid image or logic to determine the image
+                        title: circle.ig || "Unnamed Circle",
+                        subtitle: circle.org || "No Organization Specified",
+                        joinedText: `${
+                            circle.recurrence || 0
+                        } people you might know have joined`
+                    }));
+
+                    setUpcomingEvents(events);
+                    setAllCircles(circles);
+                }
+            } catch (error) {
+                console.error("Error fetching learning circles:", error);
+            }
+        };
+
+        fetchLearningCircles();
+    }, []);
+
+    return (
+        <div className={styles.mainBody}>
+            <LearningCircleWithUpcomingMeets events={upcomingEvents} />
+            <AllLearningCircles circles={allCircles} />
+        </div>
+    );
 };
 
 export default LearningCircleV3;
