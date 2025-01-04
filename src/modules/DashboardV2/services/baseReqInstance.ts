@@ -18,3 +18,4 @@ export const reqInstance = axios.create({
   // Don't set withCredentials in development when using proxy
   withCredentials: !isDevelopment
 });
+
