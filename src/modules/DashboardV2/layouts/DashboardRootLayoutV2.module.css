@@ -13,6 +13,7 @@
   
   .main_content {
     padding: 24px;
+    min-width: 600px;
     height: calc(100vh - 64px);
     overflow-y: auto;
     background-color: white;

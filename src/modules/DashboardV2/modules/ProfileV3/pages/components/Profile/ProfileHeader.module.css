@@ -5,5 +5,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start; /* Equivalent to Tailwind items-start */
+    
   }
   
+  @media (max-width: 1116px) {
+    .container {
+      flex-direction: column;
+      align-items: center; /* Equivalent to Tailwind items-center */
+      gap: 1.5rem; /* Equivalent to Tailwind gap-6 */
+      
+    }
+  }

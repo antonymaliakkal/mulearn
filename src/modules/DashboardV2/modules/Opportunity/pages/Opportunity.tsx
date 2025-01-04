@@ -1,68 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import OpportunityCard from './components/OpportunityCard';
 import styles from './Opportunity.module.css';
+import { getOpportunites } from '../service/OpportunityService';
+import { JobListing } from '../types/JobListing'; // Import the JobListing type
 
-interface Props {
-  // Define your props types here
-}
+const Opportunity: React.FC = () => {
+  const [opportunities, setOpportunities] = useState<JobListing[]>([]); // Use the correct type
 
-const Opportunity: React.FC<Props> = () => {
+  useEffect(() => {
+    // Define an async function inside useEffect to fetch data
+    const fetchOpportunities = async () => {
+      try {
+        const response = await getOpportunites();
+        setOpportunities(response);
+      } catch (error) {
+        console.error('Error fetching opportunities:', error);
+      }
+    };
 
-  const opportunities = [
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    },
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    },
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    },
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    },
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    },
-    {
-      title : "Content Writer",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      company: "Google",
-      location: "Remote",
-      jobType: "Part-time",
-      link: "#"
-    }
-  ];
+    fetchOpportunities();
+  }, []); // Empty dependency array means it runs once when the component mounts
+
+  if (opportunities.length === 0) {
+    return <div>Loading...</div>; // Optionally, show a loading indicator
+  }
 
   return (
     <div className={styles.mainDiv}>
-      {opportunities.map((value,index)=>(
-        <OpportunityCard key={index} title={value.title} company={value.company} description={value.description} jobType={value.jobType} location={value.location} link={value.link}/>
+      {opportunities.map((value, index) => (
+        <OpportunityCard
+          key={index}
+          title={value.title}
+          company={value.organization} // Make sure 'company' matches the field in the object
+          description={value.role} // Use 'role' as description for example, or whatever is appropriate
+          jobType={value.duration} // Assuming duration is the job type (e.g., Full-time, Part-time)
+          location={value.location}
+          link={value.applylink} // Assuming applylink is the link for each job
+        />
       ))}
     </div>
   );

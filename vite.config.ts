@@ -29,5 +29,25 @@ export default defineConfig({
                 chunkFileNames: "[name].js"
             }
         }
-    }
+    },
+    server: {
+        port: 5173,
+        proxy: {
+          '/api': {
+            target: 'https://dev.mulearn.org',
+            changeOrigin: true,
+            secure: false,
+            ws: true,
+            // Remove CORS headers from proxy responses
+            configure: (proxy, _options) => {
+              proxy.on('proxyRes', (proxyRes, req, _res) => {
+                // Remove CORS headers from the proxied response
+                delete proxyRes.headers['access-control-allow-origin'];
+                delete proxyRes.headers['access-control-allow-credentials'];
+                delete proxyRes.headers['access-control-allow-methods'];
+              });
+            }
+          }
+        }
+      }
 });
