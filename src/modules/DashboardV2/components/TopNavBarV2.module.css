@@ -10,6 +10,7 @@
 .titlecontainer {
     display: flex;
     align-items: center;
+    margin-right: 5px;
     gap: 16px; /* Adjust spacing between elements */
 }
 
@@ -42,4 +43,11 @@
 
 .searchbar:focus {
     border-color: #1a73e8; 
+}
+
+
+@media (max-width: 830px) {
+    .titlecontainer {
+        margin-left: 2rem;
+    }
 }
