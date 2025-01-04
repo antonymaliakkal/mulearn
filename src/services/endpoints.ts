@@ -7,7 +7,7 @@ export const dynamicRoute = (route: string, ...args: string[]) => {
             replacedRoute = replacedRoute.replace(/\${[a-zA-Z]+}/, arg);
         }
     });
-    return replacedRoute;
+    return replacedRoute;``
 };
 
 export const lcRoutes = {

@@ -5,6 +5,7 @@ import ChampionCrown from "../../../assets/svg/ChampionCrown";
 import EdwinAvatar from "../../../assets/images/Avatars/Edwin.png";
 import AnnaAvatar from "../../../assets/images/Avatars/Anna.png";
 import AlexaAvatar from "../../../assets/images/Avatars/Alexa.png";
+import { getProfile } from "../service/Leaderboardservice";
 
 // Define types for the state objects
 interface User {
@@ -29,6 +30,9 @@ const Leaderboard: React.FC = () => {
   const championsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+
+    getProfile();
+
     const fetchData = () => {
       const data: User[] = [
         {
