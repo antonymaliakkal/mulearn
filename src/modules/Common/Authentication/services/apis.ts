@@ -71,12 +71,12 @@ export const login = (
                         );
                         refreshRoles();
                         if (response.data.response.exist_in_guild) {
-                            navigate("/dashboard/profile");
+                            navigate("/dev/profile");
                         } else {
                             if (redirectPath) {
                                 navigate(`/${redirectPath}`);
                             } else {
-                                navigate("/dashboard/connect-discord");
+                                navigate("/dev/profile");
                             }
                         }
                     })
