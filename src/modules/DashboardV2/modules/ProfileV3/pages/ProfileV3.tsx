@@ -44,6 +44,7 @@ const ProfileV3: React.FC<ProfileImageProps> = () => {
       <main className={styles.main}>
         <div className={styles.wrapper}>
           <ProfileHeader
+            avatar={userData?.profile_pic}
             name={userData?.full_name || ''}
             stats={{
               karmaPoints: Math.floor(userData?.karma) || 0,
@@ -61,20 +62,13 @@ const ProfileV3: React.FC<ProfileImageProps> = () => {
                 <ProfileInfo
                   institution={collegeTitle}
                   careerPath="UI/UX Designer"
-                  interests={[
-                    'UI Design',
-                    'UI/UX',
-                    'Graphic Design',
-                    'Photoshop',
-                    'Figma',
-                    'Design Thinking',
-                  ]}
+                  interests={userData?.interest_groups ? userData.interest_groups.map((group: { name: string }) => group.name) : []}
                 />
               </div>
             </div>
 
             <div className={`${styles.card} ${styles.cardShortHeight} ${styles.card2}`}>
-              <CompleteTasks />
+              <CompleteTasks percentage={ Math.ceil(userData?.percentile * 100) }/>
             </div>
 
             <div className={`${styles.card} ${styles.card3}`}>

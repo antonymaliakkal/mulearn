@@ -1,7 +1,8 @@
 import axios, { AxiosError } from "axios";
 import { reqInstance } from "../../../services/baseReqInstance";
-import { ProfileRoutes } from "../../../services/dasboardEndpoints";
+import { LeaderboardRoutes, ProfileRoutes } from "../../../services/dasboardEndpoints";
 import { FetchUserInfoApiResponse, FetchUserProfileApiResponse, FetchCollegesApiResponse } from "./ProfileServiceInterfaces";
+import Leaderboard from "../pages/components/Profile/Leaderboard";
 
 export const fetchUserInfo = async (): Promise<FetchUserInfoApiResponse> => {
   try {
@@ -65,3 +66,16 @@ reqInstance.interceptors.response.use(
       return "Unknown College";
     }
   };
+
+  export const fetchLeaderBoard = async() => {
+    try {
+        const response = await reqInstance.get(LeaderboardRoutes.baseDetails);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            const message = error.response?.data?.message || 'Failed to fetch leader board';
+            throw new Error(message);
+        }
+        throw new Error('An unexpected error occurred');
+    }
+  }

@@ -3,15 +3,15 @@ import { ChevronRight } from 'lucide-react';
 import styles from './CompleteTasks.module.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
-export default function CompleteTasks() {
+export default function CompleteTasks({ percentage }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
       <div className={styles.actionWrapper}>
           <div className={styles.circleWrapper}>
             <CircularProgressbar
-              value={80}
-              text={`${80}%`}
+              value={percentage}
+              text={`${percentage}%`}
               className={styles.circlePercentage}
               styles={buildStyles({
                 textSize: '24px',
