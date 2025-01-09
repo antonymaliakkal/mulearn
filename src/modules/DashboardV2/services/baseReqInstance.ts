@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 // fetch access token from localstorage
 
 
-const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQyZWY5NjMzLTNhYjYtNGUxYi1iMDhjLTJmMGQxZjVjMGY2MiIsIm11aWQiOiJhc3dhbnRodmNAbXVsZWFybiIsInJvbGVzIjpbIkNhbXB1cyBMZWFkIiwiSUVFRSBMYXVuY2hwYWQgTGV2ZWwgNCIsIlN0dWRlbnQiLCJHaXQgTG9yZCIsIkNvbW1hbmQgTmluamEiLCJUZWNoIFRlYW0iLCJBZG1pbnMiLCJTY3JhdGNoIE1hc3RlcnkiLCJiZXJ4Il0sImV4cGlyeSI6IjIwMjUtMDEtMDUgMDA6Mzg6NDUrMDA6MDAiLCJ0b2tlblR5cGUiOiJhY2Nlc3MifQ.j9yOI_YoYgPzPrwecHQzKCUZ2fAiiTJ75mE0ea5_Sfk";
+const accessToken = localStorage.getItem("accessToken");
 
 
 export const reqInstance = axios.create({

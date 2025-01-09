@@ -64,6 +64,9 @@ import LearningCircleV3 from "./modules/DashboardV2/modules/LearningCircleV3/pag
 import Leaderboard from "./modules/DashboardV2/modules/Leaderboard/pages/Leaderboard";
 import InterestGroupV2 from "./modules/DashboardV2/modules/InterestGroupV2/pages/InterestGroupV2";
 import DashboardRootLayoutV2 from "./modules/DashboardV2/layouts/DashboardRootLayoutV2";
+import LcCreate from "./modules/DashboardV2/modules/LC-Create/pages/LC-Create";
+import LcMeet from "./modules/DashboardV2/modules/LC-Meet/pages/LC-Meet";
+import LcDetails from "./modules/DashboardV2/modules/LC-Details/pages/LC-Details";
 
 const Profile = lazy(
     () => import("./modules/Dashboard/modules/Profile/pages/Profile")
@@ -370,7 +373,20 @@ function App() {
                 {
                     path : "inerest-group",
                     element : <InterestGroupV2 />
+                },
+                {
+                    path : "lc-create",
+                    element : <LcCreate/>
+                },
+                {
+                    path : "lc-meet",
+                    element : <LcMeet/>
+                },
+                {
+                    path : "lc-details",
+                    element : <LcDetails/>
                 }
+
             ]
         },
         {

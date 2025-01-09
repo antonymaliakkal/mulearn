@@ -5,9 +5,15 @@ import { getInterestGroup } from '../service/InterestGroupService';
 
 import webdev from '../assets/webdev.png'; // Placeholder image
 
+interface InterestGroup {
+  id: string; // or number, depending on your data
+  name: string;
+}
+
+
 const GridPage: React.FC = () => {
   // State for dynamic interest groups
-  const [interestGroups, setInterestGroups] = useState([]);
+  const [interestGroups, setInterestGroups] = useState<InterestGroup[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

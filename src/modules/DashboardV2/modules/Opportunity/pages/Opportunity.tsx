@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import OpportunityCard from './components/OpportunityCard';
 import styles from './Opportunity.module.css';
 import { getOpportunites } from '../service/OpportunityService';
-import { JobListing } from '../types/JobListing'; // Import the JobListing type
+import { JobListing } from '../service/OpportunityService'; // Import the JobListing type
 
 const Opportunity: React.FC = () => {
   const [opportunities, setOpportunities] = useState<JobListing[]>([]); // Use the correct type

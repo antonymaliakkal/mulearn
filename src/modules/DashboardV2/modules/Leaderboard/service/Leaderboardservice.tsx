@@ -11,6 +11,7 @@ interface User {
 export const getLeaderboard = async () : Promise<User[]> => {
     try {
         const response = await reqInstance.get(LeaderboardRoutes.baseDetails);
+        console.log(response.data);
         const data = response.data;
         if(data.response != null){
             return data.response;
