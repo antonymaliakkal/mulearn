@@ -25,7 +25,7 @@
     padding: 0.6rem;
     background-color: white;
     border-radius: 1rem;
-    height: auto;
+    /* height: 100%; */
 }
 
 .main-container-top {
@@ -87,23 +87,30 @@
     text-indent: 10px;
 }
 
+
+.participants-report {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+
 /* Additions for Participants and Report Submission */
 .section-title {
     margin-top: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
     font-weight: 600;
   }
-
-  
   
   .participants-list {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    flex: 1;
-    
+    width: 50%;
+    gap: 1rem;
+    padding: 1rem;
   }
   
   .participant {
@@ -131,7 +138,6 @@
   .participant-name {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-left: 1rem;
   }
   
   .participant-role {
@@ -141,22 +147,11 @@
   
   .participant-actions {
     text-align: right;
-    display: flex;
-    gap: 2rem;
-    flex-direction: row;
-    margin-left: 2rem;
-  }
-
-  .participant-actions span {
-    font-size: .8rem;
-    color: #666;
   }
   
   .participant-likes {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: #666;
-    display: flex;
-    flex-direction: column;
   }
   
   .participant-status {
@@ -172,22 +167,16 @@
   .participant-status:hover {
     background-color: #2563eb;
   }
-   .report-section {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    margin-left: 8rem;
-    margin-right: 0%;
-    width: 100%; /* Default to full width */
-    flex: 1; /* Allow it to grow/shrink proportionally *//* Remove excessive left margin */
-    
-  }
+  
   .report-form {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 50%;
+    padding: 1rem;
   }
+
   
   .report-label {
     font-size: 1rem;
@@ -198,12 +187,16 @@
     height: 100px;
     resize: none;
     padding: 0.5rem;
+    padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid #c5d1e9;
   }
   
+  
   .report-actions {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
   }
@@ -216,10 +209,10 @@
   
   .report-submit {
     padding: 0.5rem 1rem;
-    background-color: #3b82f6;
+    background: #0961F5;
     color: white;
-    border: none;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid #0961F5;
     cursor: pointer;
   }
   
@@ -242,12 +235,11 @@
     
   }
 
-  .participants-report {
+  .participant-report{
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping to prevent overlap */
-    gap: 1.5rem; /* Add space between sections */
-    align-items: flex-start;
-}
+    flex-direction: column;
+    justify-content: space-between;
+  }
   
 
   /* Status-specific styles */
@@ -255,7 +247,6 @@
     background-color: transparent;
     color: #F10F0F;
     border: none;
-    
   }
   
   .status-view-report {
@@ -267,5 +258,3 @@
     background-color: transparent;
     color: #D98921;
   }
-  
-  

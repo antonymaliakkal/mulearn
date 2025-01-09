@@ -5,8 +5,7 @@ import { LuCalendarPlus } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import styles from "./LC-Meet.module.css";
-import classNames from "classnames"; 
-
+import classNames from "classnames";
 
 const pathprop = ["Learning Circles", "UI/UX Designers CET", "16/12/2024 - 04:30PM"];
 const description = `
@@ -59,7 +58,6 @@ const participants = [
 ];
 
 const LcMeet: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
   const [report, setReport] = useState<string>("");
 
   const handleReportSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -72,8 +70,7 @@ const LcMeet: React.FC = () => {
     <div className={styles.container}>
       {/* Pathbar */}
       <div className={styles.pathbar}>
-        <span>{pathprop[0]}</span> &gt; <span>{pathprop[1]}</span> &gt;{" "}
-        <span>{pathprop[2]}</span>
+        <span>{pathprop[0]}</span> &gt; <span>{pathprop[1]}</span> &gt; <span>{pathprop[2]}</span>
       </div>
 
       {/* Main Container */}
@@ -116,78 +113,73 @@ const LcMeet: React.FC = () => {
 
         {/* Description */}
         <div className={styles["description-section"]}>
-        
           <p className={styles.description}>{description}</p>
         </div>
-    <div className={styles["participants-report"]}>
 
-      <div>  
-        {/* Other Participants */}
-        <h2 className={styles["section-title"]}>Other Participants</h2>
-        <div className={styles["participants-list"]}>
-          {participants.map((participant, index) => (
-            <div key={index} className={styles.participant}>
-              <div className={styles["participant-info"]}>
-                <img
-                  className={styles["participant-avatar"]}
-                  src={`https://via.placeholder.com/50?text=${participant.name[0]}`}
-                  alt={`${participant.name} avatar`}
-                />
-                <div>
-                  <h3 className={styles["participant-name"]}>{participant.name}</h3>
-                  <p className={styles["participant-role"]}>{participant.role}</p>
+        <div className={styles["participants-report"]}>
+          {/* Other Participants */}
+          <div className={styles["participants-list"]}>
+            <h2 className={styles["section-title"]}>Other Participants</h2>
+            {participants.map((participant, index) => (
+              <div key={index} className={styles.participant}>
+                <div className={styles["participant-info"]}>
+                  <img
+                    className={styles["participant-avatar"]}
+                    src={`https://via.placeholder.com/50?text=${participant.name[0]}`}
+                    alt={`${participant.name} avatar`}
+                  />
+                  <div>
+                    <h3 className={styles["participant-name"]}>{participant.name}</h3>
+                    <p className={styles["participant-role"]}>{participant.role}</p>
+                  </div>
+                </div>
+                <div className={styles["participant-actions"]}>
+                  <p className={styles["participant-likes"]}>{participant.likes} Likes</p>
+                  <button
+                    className={classNames({
+                      [styles["status-rejected"]]: participant.status === "Rejected",
+                      [styles["status-view-report"]]: participant.status === "View Report",
+                      [styles["status-to-review"]]: participant.status === "To Review",
+                    })}
+                  >
+                    {participant.status}
+                  </button>
                 </div>
               </div>
-              <div className={styles["participant-actions"]}>
-                <p className={styles["participant-likes"]}>{participant.likes} <span>Karma</span></p>
-                
-                <button className={classNames({
-            [styles["status-rejected"]]: participant.status === "Rejected",
-            [styles["status-view-report"]]: participant.status === "View Report",
-            [styles["status-to-review"]]: participant.status === "To Review"
-          })}>
-                  {participant.status}
-                </button>
-              </div>
+            ))}
+          </div>
+
+          {/* Report Submission */}
+          <form className={styles["report-form"]} onSubmit={handleReportSubmit}>
+            <h2 className={styles["section-title"]}>Report Submission</h2>
+            <label htmlFor="report" className={styles["report-label"]}>
+              Submit your report here:
+            </label>
+            <textarea
+              id="report"
+              className={styles["report-input"]}
+              value={report}
+              onChange={(e) => setReport(e.target.value)}
+              placeholder="Enter the report link"
+            ></textarea>
+            <div className={styles["report-actions"]}>
+              <span>Or</span>
+              <span>
+                You can upload your report in .pdf or .doc formats. To upload,{" "}
+                <a
+                  href="#"
+                  className={styles["upload-link"]}
+                  onClick={() => alert("Upload functionality not implemented.")}
+                >
+                  Click here
+                </a>
+              </span>
+              <button type="submit" className={styles["report-submit"]}>
+                Submit
+              </button>
             </div>
-          ))}
-        </div></div>
-      
-          <div className={styles["report-section"]}>
-             {/* Report Submission */}
-        <h2 className={styles["section-title"]}>Report Submission</h2>
-        <form className={styles["report-form"]} onSubmit={handleReportSubmit}>
-          <label htmlFor="report" className={styles["report-label"]}>
-            Submit your report here:
-          </label>
-          <textarea
-            id="report"
-            className={styles["report-input"]}
-            value={report}
-            onChange={(e) => setReport(e.target.value)}
-            placeholder="Enter the report"
-          ></textarea>
-          <div className={styles["report-actions"]}>
-            <span>Or</span>
-            <a
-              href="#"
-              className={styles["upload-link"]}
-              onClick={() => alert("Upload functionality not implemented.")}
-            >
-              Click here
-            </a>
-            <button type="submit" className={styles["report-submit"]}>
-              Submit
-            </button>
-          </div>
-        </form>
-          </div>
-       
-
-
-    </div>
-
-        
+          </form>
+        </div>
       </div>
     </div>
   );
