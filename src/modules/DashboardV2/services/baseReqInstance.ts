@@ -18,6 +18,5 @@ export const reqInstance = axios.create({
     'Authorization': `Bearer ${accessToken}`
   },
   // Don't set withCredentials in development when using proxy
-  withCredentials: !isDevelopment
 });
 
