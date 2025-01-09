@@ -208,6 +208,8 @@
   }
   
   .report-submit {
+    height: 44px;
+    width: 196px;
     padding: 0.5rem 1rem;
     background: #0961F5;
     color: white;
