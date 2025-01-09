@@ -6,6 +6,8 @@ import { IoMdTime } from "react-icons/io";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import styles from "./LC-Meet.module.css";
 import classNames from "classnames";
+import Popup from 'reactjs-popup';
+
 
 const pathprop = ["Learning Circles", "UI/UX Designers CET", "16/12/2024 - 04:30PM"];
 const description = `
@@ -135,15 +137,51 @@ const LcMeet: React.FC = () => {
                 </div>
                 <div className={styles["participant-actions"]}>
                   <p className={styles["participant-likes"]}>{participant.likes} Likes</p>
-                  <button
-                    className={classNames({
-                      [styles["status-rejected"]]: participant.status === "Rejected",
-                      [styles["status-view-report"]]: participant.status === "View Report",
-                      [styles["status-to-review"]]: participant.status === "To Review",
-                    })}
+                  <Popup
+                    disabled={participant.status !== "To Review"}
+                    trigger={
+                      <button
+                        className={classNames({
+                          [styles["status-rejected"]]: participant.status === "Rejected",
+                          [styles["status-view-report"]]: participant.status === "View Report",
+                          [styles["status-to-review"]]: participant.status === "To Review",
+                        })}
+                      >
+                        {participant.status}
+                      </button>
+                    }
+                    modal
+                    closeOnDocumentClick
+                    contentStyle={{ padding: "0", border: "none", borderRadius: "12px" }}
+                    overlayStyle={{ backdropFilter: "blur(8px)" }}
                   >
-                    {participant.status}
-                  </button>
+                    {(close: React.MouseEventHandler<HTMLButtonElement> | undefined) => (
+                      <div className={styles["popup-container"]}>
+                        {/* <button className={styles["popup-close"]} onClick={close}>
+                          &times;
+                        </button> */}
+                        <div className={styles["popup-content"]}>
+                          <img
+                            src={`https://via.placeholder.com/80?text=${participant.name[0]}`}
+                            alt="Avatar"
+                            className={styles["popup-avatar"]}
+                          />
+                          <div className={styles["popup-options"]}>
+                            <h3>
+                              <a href="#" className={styles["popup-link"]}>
+                                View Report
+                              </a>{" "}
+                              of {participant.name}
+                            </h3>
+                            <div className={styles["popup-actions"]}>
+                              <button className={styles["popup-accept"]}>✔ Accept</button>
+                              <button className={styles["popup-reject"]}>✖ Reject</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </Popup>
                 </div>
               </div>
             ))}

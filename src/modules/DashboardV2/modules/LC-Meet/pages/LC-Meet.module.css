@@ -249,6 +249,7 @@
     background-color: transparent;
     color: #F10F0F;
     border: none;
+    
   }
   
   .status-view-report {
@@ -260,3 +261,88 @@
     background-color: transparent;
     color: #D98921;
   }
+
+  /* LC-Meet.module.css */
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  width: 22rem;
+  height: 7rem;
+  /* max-width: 400px; */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.popup-content {
+  display: flex;
+  align-items: center;
+  margin-top: 0.6rem;
+  justify-content: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-content h3 {
+  margin: 10px 0;
+  font-size:16px;
+}
+
+.popup-link {
+  color: #d78823;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.popup-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+}
+
+
+.popup-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.popup-accept,
+.popup-reject {
+  padding: 3px 9px;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.popup-accept {
+  background-color: #cce8cc;
+  color: #1b7e1b;
+}
+
+.popup-reject {
+  background-color: #f6c6c6;
+  color: #cc2929;
+}
+
+/* Background blur when popup is open */
+.ReactModal__Overlay {
+  backdrop-filter: blur(5px);
+}
+
+.reactjs-popup-overlay {
+  transition: backdrop-filter 0.3s ease-in-out;
+}
