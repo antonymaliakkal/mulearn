@@ -1,0 +1,307 @@
+/* General Styles */
+.learningCircle {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Long Image Section */
+  .longImageSection {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .longImage {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+  
+  /* Header Section */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .headerL {
+    width: 50%;
+    align-items: flex-start;
+  }
+  
+  .headerL p {
+    text-align: justify;
+  }
+  
+  .headerR {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    color: #0056b3;
+  }
+  
+  .header p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .headerActions {
+    margin-top: 10px;
+    flex-wrap: nowrap;
+    display: flex; /* Ensure buttons stay in a row */
+    gap: 15px;
+  }
+  
+  .actionButton {
+    padding: 8px 70px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 80%;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  
+  .actionButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    margin-left: 5rem;
+  }
+  
+  .statItem {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .statValue {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 0.5em;
+  }
+  
+  .statLabel {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Stat Item with Button */
+  .statItemWithButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .viewPeersButton {
+    padding: 0;
+    font-size: 16px;
+    color: #007bff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 5px;
+    transform: translate(10px, -10px);
+    margin-left: 5px;
+  }
+  
+  .viewPeersButton:hover {
+    color: #0056b3;
+  }
+  
+  /* Meetings Section */
+  .meetings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .meetingCard {
+    background-color: #dae7fe;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Buttons Section */
+  .cardButtons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  .actionButtontop {
+    padding: 9px 80px; /* Increased width */
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: static;
+    margin-right: 15px; /* Added/increased right margin */
+    white-space: nowrap;
+  }
+  
+  .actionButton {
+    padding: 9px 25px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: static;
+  }
+  
+  .actionButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Card Header */
+  .cardHeader h3 {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  /* Card Details */
+  .cardDetails {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .detailItem {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .icon {
+    margin-right: 5px;
+  }
+  
+  /* Interested Avatars */
+  .interestedSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .avatarGroup {
+    display: flex;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: -10px;
+  }
+  
+  .interestedSection span {
+    font-size: 14px;
+    color: #555;
+    margin-left: 10px;
+  }
+  
+  /* Card Body */
+  .cardBody strong {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .cardBody p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* New Created By Section */
+  .createdBy {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .createdByAvatar {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .createdBy span {
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .avatartop {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .avatarandname {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 0.5em;
+  }
+  
+  .locationInfo {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4em;
+ 
+  }
+  
+  .locationItem {
+    margin-bottom: 15px;
+  }
+  
