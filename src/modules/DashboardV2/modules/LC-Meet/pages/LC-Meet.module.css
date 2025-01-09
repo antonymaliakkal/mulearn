@@ -86,3 +86,158 @@
     align-items: center;
     text-indent: 10px;
 }
+
+/* Additions for Participants and Report Submission */
+.section-title {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .participants-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .participant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: inherit;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .participant-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .participant-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #c5d1e9;
+  }
+  
+  .participant-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .participant-role {
+    font-size: 0.9rem;
+    color: gray;
+  }
+  
+  .participant-actions {
+    text-align: right;
+  }
+  
+  .participant-likes {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .participant-status {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .participant-status:hover {
+    background-color: #2563eb;
+  }
+  
+  .report-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .report-label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .report-input {
+    height: 100px;
+    resize: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #c5d1e9;
+  }
+  
+  .report-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .upload-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .report-submit {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .report-submit:hover {
+    background-color: #2563eb;
+  }
+
+  .description-section {
+    margin-top: 1.5rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    background-color: inherit;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    
+    
+  }
+
+  .participant-report{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+  /* Status-specific styles */
+.status-rejected {
+    background-color: transparent;
+    color: #F10F0F;
+    border: none;
+  }
+  
+  .status-view-report {
+    background-color: transparent;
+    color: #0961F5;
+  }
+  
+  .status-to-review {
+    background-color: transparent;
+    color: #D98921;
+  }
+  
+  
