@@ -25,7 +25,7 @@
     padding: 0.6rem;
     background-color: white;
     border-radius: 1rem;
-    height: 100%;
+    height: auto;
 }
 
 .main-container-top {
@@ -93,12 +93,17 @@
     font-size: 1.5rem;
     font-weight: 600;
   }
+
+  
   
   .participants-list {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    width: 100%;
+    flex: 1;
+    
   }
   
   .participant {
@@ -126,6 +131,7 @@
   .participant-name {
     font-size: 1.2rem;
     font-weight: 600;
+    margin-left: 1rem;
   }
   
   .participant-role {
@@ -135,11 +141,22 @@
   
   .participant-actions {
     text-align: right;
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    margin-left: 2rem;
+  }
+
+  .participant-actions span {
+    font-size: .8rem;
+    color: #666;
   }
   
   .participant-likes {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #666;
+    display: flex;
+    flex-direction: column;
   }
   
   .participant-status {
@@ -155,7 +172,16 @@
   .participant-status:hover {
     background-color: #2563eb;
   }
-  
+   .report-section {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8rem;
+    margin-right: 0%;
+    width: 100%; /* Default to full width */
+    flex: 1; /* Allow it to grow/shrink proportionally *//* Remove excessive left margin */
+    
+  }
   .report-form {
     margin-top: 1rem;
     display: flex;
@@ -216,11 +242,12 @@
     
   }
 
-  .participant-report{
+  .participants-report {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+    flex-wrap: wrap; /* Allow wrapping to prevent overlap */
+    gap: 1.5rem; /* Add space between sections */
+    align-items: flex-start;
+}
   
 
   /* Status-specific styles */
@@ -228,6 +255,7 @@
     background-color: transparent;
     color: #F10F0F;
     border: none;
+    
   }
   
   .status-view-report {

@@ -121,6 +121,7 @@ const LcMeet: React.FC = () => {
         </div>
     <div className={styles["participants-report"]}>
 
+      <div>  
         {/* Other Participants */}
         <h2 className={styles["section-title"]}>Other Participants</h2>
         <div className={styles["participants-list"]}>
@@ -138,7 +139,8 @@ const LcMeet: React.FC = () => {
                 </div>
               </div>
               <div className={styles["participant-actions"]}>
-                <p className={styles["participant-likes"]}>{participant.likes} Likes</p>
+                <p className={styles["participant-likes"]}>{participant.likes} <span>Karma</span></p>
+                
                 <button className={classNames({
             [styles["status-rejected"]]: participant.status === "Rejected",
             [styles["status-view-report"]]: participant.status === "View Report",
@@ -149,9 +151,10 @@ const LcMeet: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Report Submission */}
+        </div></div>
+      
+          <div className={styles["report-section"]}>
+             {/* Report Submission */}
         <h2 className={styles["section-title"]}>Report Submission</h2>
         <form className={styles["report-form"]} onSubmit={handleReportSubmit}>
           <label htmlFor="report" className={styles["report-label"]}>
@@ -178,6 +181,8 @@ const LcMeet: React.FC = () => {
             </button>
           </div>
         </form>
+          </div>
+       
 
 
     </div>
