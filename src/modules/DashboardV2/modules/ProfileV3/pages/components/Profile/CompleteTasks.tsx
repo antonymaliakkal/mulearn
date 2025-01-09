@@ -3,7 +3,11 @@ import { ChevronRight } from 'lucide-react';
 import styles from './CompleteTasks.module.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
-export default function CompleteTasks({ percentage }) {
+interface CompleteTasksProps {
+  percentage: number; // Define the type of `percentage`
+}
+
+export default function CompleteTasks({ percentage } : CompleteTasksProps) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
