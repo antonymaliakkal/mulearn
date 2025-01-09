@@ -45,6 +45,8 @@ export const login = (
     redirectPath: string
 ) => {
     setIsLoading(true);
+    console.log(authRoutes.login);
+    console.log(publicGateway);
     publicGateway
         .post(authRoutes.login, { emailOrMuid, password })
         .then((response: authRoutesLoginRes) => {

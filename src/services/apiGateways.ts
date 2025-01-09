@@ -29,12 +29,13 @@ export const privateGateway = axios.create({
 // Add a request interceptor
 privateGateway.interceptors.request.use(
     function (config) {
+        console.log(privateGateway);
         const accessToken = localStorage.getItem("accessToken");
         if (accessToken) {
             config.headers["Authorization"] = `Bearer ${accessToken}`;
         }
 
-        return config;
+        return config; 
     },
     function (error) {
         // Do something with request error

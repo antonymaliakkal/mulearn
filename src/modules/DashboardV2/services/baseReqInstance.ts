@@ -11,7 +11,7 @@ const accessToken = localStorage.getItem("accessToken");
 
 export const reqInstance = axios.create({
   // In development, use relative URLs that will be handled by the Vite proxy
-  baseURL: isDevelopment ? `${BASEPATH}` : 'https://dev.mulearn.org/api/v1/dashboard/profile',
+  baseURL: isDevelopment ? `${BASEPATH}` : 'https://dev.mulearn.org/api/v1',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
