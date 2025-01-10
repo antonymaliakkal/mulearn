@@ -27,7 +27,7 @@ export const getLeaderboard = async () : Promise<User[]> => {
 
 export const getMyRank = async () : Promise<any> =>{
     try {
-        const response = await reqInstance.get(ProfileRoutes.userProfile+"/");
+        const response = await reqInstance.get(ProfileRoutes.userProfile);
         let myRankDetails : any = {};
         myRankDetails['rank'] = response.data.response.rank;
         myRankDetails['karma'] = response.data.response.karma;

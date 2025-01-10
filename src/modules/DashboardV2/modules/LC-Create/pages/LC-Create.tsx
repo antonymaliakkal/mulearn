@@ -134,6 +134,7 @@ const LcCreate: React.FC = () => {
           ></textarea>
         </div>
 
+        <div className={styles.lastRow}>
         <div className={styles.inputGroup}>
           <label htmlFor="recurring" className={styles.input_label}>Is this recurring?</label>
           <label className={styles.switch}>
@@ -153,6 +154,7 @@ const LcCreate: React.FC = () => {
         <button type="submit" className={styles.submitBtn}>
           Create a learning Circle
         </button>
+        </div>
       </form>
     </div>
   );
