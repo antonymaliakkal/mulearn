@@ -141,6 +141,10 @@ const LcDetails: React.FC = () => {
                                                 />
                                             </label>
                                         </div>
+                                        <div>
+
+                                          
+                                        </div>
                                         <label>
                                             What are you planning to do
                                             (Agenda)*:

@@ -326,14 +326,14 @@
   .popup {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 66.125rem;
     max-width: 90%;
     margin: auto;
     position: relative;
     text-align: center;
-    height: 40.125rem;
+    height: 38.125rem;
   }
   
   .popup h3 {
@@ -352,8 +352,8 @@
   
   .scheduleForm label {
     font-size: 0.95rem;
-    font-weight: 500;
-    color: #555555;
+    font-weight: bold;
+    color: #333333;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -433,8 +433,12 @@
 .toggleWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
   margin-top: 10px;
+}
+
+.toggleWrapper input{
+  display: none;
 }
 
 /* Toggle Label */
@@ -449,10 +453,12 @@
   position: relative;
   width: 50px;
   height: 24px;
-  background-color: #cccccc;
+  background-color: #ffffff;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  margin-left: 2rem;
 }
 
 /* Visible Toggle Button (span) */
@@ -463,7 +469,7 @@
   left: 2px;
   width: 20px;
   height: 20px;
-  background-color: #ffffff;
+  background-color: #d4d0d0;
   border-radius: 50%;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
