@@ -11,6 +11,7 @@ import {
     FaBuilding
 } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const LcDetails: React.FC = () => {
     const [interest, setInterest] = useState("Show Interest");
@@ -73,34 +74,10 @@ const LcDetails: React.FC = () => {
         }
     };
 
-    return (
-        <div className={styles.learningCircle}>
-            {/* Long Image Section */}
-            <div className={styles.longImageSection}>
-                <img
-                    src={detailsImage}
-                    alt="Learning Circle Details"
-                    className={styles.longImage}
-                />
-            </div>
-
-            {/* Header Section */}
-            <header className={styles.header}>
-                <div className={styles.headerL}>
-                    <p>{dummyData.headerInfo.description}</p>
-                    <div className={styles.headerActions}>
-                        {/* Popup Trigger */}
-                        <Popup
-                            trigger={
-                                <button className={styles.actionButtontop}>
-                                    Schedule a Meet
-                                </button>
-                            }
-                            modal
-                            closeOnDocumentClick
-                        >
-                            {(close: any) => (
-                                <div className={styles.popup}>
+    const PopupContent: React.FC<{
+        close: () => void;
+    }> = ({close}) => (
+        <div className={styles.popup}>
                                     <h3>Schedule a Meet</h3>
                                     <form className={styles.scheduleForm}>
                                         <div className={styles.dtd}>
@@ -193,7 +170,41 @@ const LcDetails: React.FC = () => {
                                         </div>
                                     </form>
                                 </div>
-                            )}
+    )
+
+    const navigate = useNavigate();
+    const handleCardClick = () => {
+        navigate("/dev/lc-meet");
+      };
+    
+
+    return (
+        <div className={styles.learningCircle}>
+            {/* Long Image Section */}
+            <div className={styles.longImageSection}>
+                <img
+                    src={detailsImage}
+                    alt="Learning Circle Details"
+                    className={styles.longImage}
+                />
+            </div>
+
+            {/* Header Section */}
+            <header className={styles.header}>
+                <div className={styles.headerL}>
+                    <p>{dummyData.headerInfo.description}</p>
+                    <div className={styles.headerActions}>
+                        {/* Popup Trigger */}
+                        <Popup
+                            trigger={
+                                <button className={styles.actionButtontop}>
+                                    Schedule a Meet
+                                </button>
+                            }
+                            modal
+                            closeOnDocumentClick
+                        >
+                            <PopupContent close={(() => {})}/>
                         </Popup>
                         <button className={styles.actionButtontop}>
                             Invite Others
@@ -254,7 +265,7 @@ const LcDetails: React.FC = () => {
             {/* Meetings Section */}
             <div className={styles.meetings}>
                 {dummyData.meetings.map(meeting => (
-                    <div key={meeting.id} className={styles.meetingCard}>
+                    <div key={meeting.id} className={styles.meetingCard} onClick={handleCardClick}>
                         {/* Buttons Section */}
                         {meeting.registerd ? (
                             <div className={styles.cardButtons}>

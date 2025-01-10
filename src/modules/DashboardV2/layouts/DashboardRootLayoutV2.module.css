@@ -50,13 +50,13 @@
 /* Medium Screens (Laptop) */
 @media screen and (max-width: 1200px) {
   .right_side {
-    margin-left: 280px; /* sidebar width (250px) + padding */
+    margin-left: 250px; /* sidebar width (250px) + padding */
     width: calc(100% - 280px);
   }
 }
 
 /* Mobile and Tablet */
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 900px) {
   .right_side {
     margin-left: 0;
     width: 100%;

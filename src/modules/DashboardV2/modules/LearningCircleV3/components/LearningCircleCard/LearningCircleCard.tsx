@@ -7,6 +7,7 @@ import {
   CardDescription
 } from "../../../../../../components/MuComponents/MuCard/Card";
 import styles from "./LearningCircleCard.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface LearningCircleCardProps {
   image: string;
@@ -21,8 +22,15 @@ const LearningCircleCard: React.FC<LearningCircleCardProps> = ({
   subtitle,
   joinedText
 }) => {
+
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    navigate("/dev/lc-details"); 
+  };
+
+
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} onClick={handleCardClick} style={{cursor:"pointer"}}>
       <Card style={{ marginTop: "20px", borderRadius: "16px" }}>
         <CardHeader>
           <img src={image} alt={title} className={styles.cardImage} />

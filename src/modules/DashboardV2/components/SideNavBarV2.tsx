@@ -21,12 +21,12 @@ const SideNavBarV2 = ({
   onButtonClick,
   buttons,
 }: SideNavBarProps) => {
-  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 830);
+  const [isCollapsed, setIsCollapsed] = useState(window.innerWidth <= 900);
   const [isSidebarVisible, setIsSidebarVisible] = useState(!isCollapsed);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 830) {
+      if (window.innerWidth <= 900) {
         setIsCollapsed(true);
         setIsSidebarVisible(false);
       } else {

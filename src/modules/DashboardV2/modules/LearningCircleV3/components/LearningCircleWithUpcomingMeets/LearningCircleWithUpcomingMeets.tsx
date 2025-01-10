@@ -1,6 +1,7 @@
 import React from "react";
 import EventCard from "../EventCard/EventCard";
 import styles from "./LearningCircleWithUpcomingMeets.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface LearningCircleWithUpcomingMeetsProps {
     events: Array<{
@@ -17,11 +18,24 @@ interface LearningCircleWithUpcomingMeetsProps {
 const LearningCircleWithUpcomingMeets: React.FC<
     LearningCircleWithUpcomingMeetsProps
 > = ({ events }) => {
+
+    const navigate = useNavigate();
+    const handleCreateButton = () => {
+        navigate("/dev/lc-create");
+    };
+
     return (
         <div className={styles.section}>
-            <h2 className={styles.sectionHeader}>
-                Learning Circles with Upcoming Meets
-            </h2>
+            <div className={styles.header}>
+                <div>
+                    <h2 className={styles.sectionHeader}>
+                        Learning Circles with Upcoming Meets
+                    </h2>
+                </div>
+                <div>
+                <button onClick={handleCreateButton} className={styles.createButton}>Create new learning circle</button>
+                </div>
+            </div>
             <div className={styles.cardContainer}>
                 {events.map((event, index) => (
                     <div key={index} className={styles.card}>
