@@ -8,7 +8,6 @@ import styles from "./LC-Meet.module.css";
 import classNames from "classnames";
 import Popup from 'reactjs-popup';
 
-
 const pathprop = ["Learning Circles", "UI/UX Designers CET", "16/12/2024 - 04:30PM"];
 const description = `
 The UI/UX Design Learning Circle Meet will begin with a brief welcome and introductions, 
@@ -59,6 +58,13 @@ const participants = [
   },
 ];
 
+interface Participant {
+  name: string;
+  role: string;
+  likes: string;
+  status: string;
+}
+
 const LcMeet: React.FC = () => {
   const [report, setReport] = useState<string>("");
 
@@ -67,6 +73,34 @@ const LcMeet: React.FC = () => {
     alert(`Report Submitted: ${report}`);
     setReport("");
   };
+
+  // Popup content component with proper typing
+  const PopupContent: React.FC<{
+    close: () => void;
+    participant: Participant;
+  }> = ({ close, participant }) => (
+    <div className={styles["popup-container"]}>
+      <div className={styles["popup-content"]}>
+        <img
+          src={`https://via.placeholder.com/80?text=${participant.name[0]}`}
+          alt="Avatar"
+          className={styles["popup-avatar"]}
+        />
+        <div className={styles["popup-options"]}>
+          <h3>
+            <a href="#" className={styles["popup-link"]}>
+              View Report
+            </a>{" "}
+            of {participant.name}
+          </h3>
+          <div className={styles["popup-actions"]}>
+            <button className={styles["popup-accept"]} onClick={close}>✔ Accept</button>
+            <button className={styles["popup-reject"]} onClick={close}>✖ Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className={styles.container}>
@@ -155,33 +189,10 @@ const LcMeet: React.FC = () => {
                     contentStyle={{ padding: "0", border: "none", borderRadius: "12px" }}
                     overlayStyle={{ backdropFilter: "blur(8px)" }}
                   >
-                    {(close: React.MouseEventHandler<HTMLButtonElement> | undefined) => (
-                      <div className={styles["popup-container"]}>
-                        {/* <button className={styles["popup-close"]} onClick={close}>
-                          &times;
-                        </button> */}
-                        <div className={styles["popup-content"]}>
-                          <img
-                            src={`https://via.placeholder.com/80?text=${participant.name[0]}`}
-                            alt="Avatar"
-                            className={styles["popup-avatar"]}
-                          />
-                          <div className={styles["popup-options"]}>
-                            <h3>
-                              <a href="#" className={styles["popup-link"]}>
-                                View Report
-                              </a>{" "}
-                              of {participant.name}
-                            </h3>
-                            <div className={styles["popup-actions"]}>
-                              <button className={styles["popup-accept"]}>✔ Accept</button>
-                              <button className={styles["popup-reject"]}>✖ Reject</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                    {/* Pass the PopupContent directly without wrapping in a function */}
+                    <PopupContent close={() => { }} participant={participant} />
                   </Popup>
+
                 </div>
               </div>
             ))}

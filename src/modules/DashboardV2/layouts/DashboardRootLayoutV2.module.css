@@ -1,22 +1,112 @@
+/* Base Layout */
 .full_page {
-    display: flex;
-    min-height: 100vh;
-    background-color: #0961F526;
-  }
-  
-  .right_side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
+  display: flex;
+  min-height: 100vh;
+  background-color: #0961F526;
+  position: relative;
+}
+
+.right_side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: calc(15%); /* sidebar width (15%) + padding (3rem * 2) */
+  width: calc(85% - 6rem); /* Remaining space minus padding */
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.main_content {
+  padding: 24px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  background-color: white;
+  margin: 19px;
+  border-radius: 20px;
+}
+
+/* Scrollbar Styling */
+.main_content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main_content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main_content::-webkit-scrollbar-thumb {
+  background-color: rgba(9, 97, 245, 0.1);
+  border-radius: 4px;
+}
+
+/* Large Screens (Desktop) */
+@media screen and (min-width: 1441px) {
   .main_content {
-    padding: 24px;
-    min-width: 600px;
-    height: calc(100vh - 64px);
-    overflow-y: auto;
-    background-color: white;
-    margin: 19px;
-    border-radius: 20px;
+    margin: 24px;
+    padding: 32px;
   }
+}
+
+/* Medium Screens (Laptop) */
+@media screen and (max-width: 1200px) {
+  .right_side {
+    margin-left: 280px; /* sidebar width (250px) + padding */
+    width: calc(100% - 280px);
+  }
+}
+
+/* Mobile and Tablet */
+@media screen and (max-width: 830px) {
+  .right_side {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .right_side.sidebar_visible {
+    margin-left: 0;
+  }
+
+  .main_content {
+    margin: 16px;
+    padding: 16px;
+    height: calc(100vh - 80px);
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 480px) {
+  .main_content {
+    margin: 12px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+}
+
+/* Handle sidebar collapsed state */
+.right_side.sidebar_collapsed {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Safe Area Handling */
+@supports(padding: max(0px)) {
+  .main_content {
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+}
+
+/* Print Styles */
+@media print {
+  .right_side {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .main_content {
+    height: auto;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -2,7 +2,7 @@
   display: flex;
   max-height: 60vh;
   width: 100%;
- 
+  background-color: white;
 }
 
 .main {
@@ -38,6 +38,7 @@
     "card3 card4"
     "card3 card4";
   color: #000;
+ 
 }
 
 .card1 { grid-area: card1; }

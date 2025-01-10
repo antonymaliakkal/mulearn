@@ -73,11 +73,16 @@ const buttons = [
 const DashboardRootLayoutV2 = () => {
 
     const [currentPage, setCurrentPage] = useState('Profile');
+    const [isSidebarVisible, setIsSidebarVisible] = useState(true);
     const navigate = useNavigate();
     const handleButtonClick = (button: SidebarButton) => {
         setCurrentPage(button.id);
         navigate(button.url);
     }
+
+    const rightSideClasses = `${styles.right_side} ${
+      !isSidebarVisible ? styles.sidebar_collapsed : ''
+  }`;
 
     return (
   

@@ -32,6 +32,10 @@
   background-color: white;
 }
 
+.searchcontainer input {
+    border : none;
+}
+
 .searchbar {
     padding: 2px 20px;
     border-radius: 5rem;
