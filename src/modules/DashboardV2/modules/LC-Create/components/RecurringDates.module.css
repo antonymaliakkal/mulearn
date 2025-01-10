@@ -1,0 +1,65 @@
+.card {
+    position: absolute;
+    top: 100%;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px; /* Reduced font size */
+    text-align: left; /* Align text to the left */
+    width: 300px; /* Adjust card width */
+  }
+  
+  .title {
+    font-size: 16px; /* Slightly larger title */
+    margin-bottom: 12px;
+  }
+  
+  .frequencyButtons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .frequencyButton {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .frequencyButton.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .optionsContainer {
+    margin-top: 12px;
+  }
+  
+  .infoText {
+    margin-bottom: 8px;
+  }
+  
+  .dayButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .dayButton {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .dayButton.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
