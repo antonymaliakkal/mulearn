@@ -8,7 +8,6 @@ import styles from "./LC-Meet.module.css";
 import classNames from "classnames";
 import Popup from 'reactjs-popup';
 
-
 const pathprop = ["Learning Circles", "UI/UX Designers CET", "16/12/2024 - 04:30PM"];
 const description = `
 The UI/UX Design Learning Circle Meet will begin with a brief welcome and introductions, 
