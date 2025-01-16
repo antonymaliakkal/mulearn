@@ -351,47 +351,52 @@ function App() {
         },
         // { path: "register/select-community", element: <CommunityPage /> },
         {
-            path : "/dev",
-            element : <DashboardRootLayoutV2/> ,
-            children : [
+            path: "/",
+            element: <PrivateRoutes />,
+            children: [
                 {
-                    path : "profile",
-                    element : <ProfileV3 />
-                },
-                {
-                    path : "opportunity",
-                    element : <Opportunity/>
-                },
-                {
-                    path : "learning-circle",
-                    element : <LearningCircleV3/>
-                },
-                {
-                    path : "leaderboard",
-                    element : <Leaderboard/>
-                },
-                {
-                    path : "inerest-group",
-                    element : <InterestGroupV2 />
-                },
-                {
-                    path : "lc-create",
-                    element : <LcCreate/>
-                },
-                {
-                    path : "lc-meet",
-                    element : <LcMeet/>
-                },
-                {
-                    path : "lc-details",
-                    element : <LcDetails/>
+                    path: "/dev",
+                    element: <DashboardRootLayoutV2 />,
+                    children: [
+                        {
+                            path: "profile",
+                            element: <ProfileV3 />
+                        },
+                        {
+                            path: "opportunity",
+                            element: <Opportunity />
+                        },
+                        {
+                            path: "learning-circle",
+                            element: <LearningCircleV3 />
+                        },
+                        {
+                            path: "leaderboard",
+                            element: <Leaderboard />
+                        },
+                        {
+                            path: "inerest-group",
+                            element: <InterestGroupV2 />
+                        },
+                        {
+                            path: "lc-create",
+                            element: <LcCreate />
+                        },
+                        {
+                            path: "lc-meet",
+                            element: <LcMeet />
+                        },
+                        {
+                            path: "lc-details",
+                            element: <LcDetails />
+                        }
+                    ]
                 }
-
             ]
         },
         {
             path: "/",
-            // element: <PrivateRoutes />,
+            element: <PrivateRoutes />,
             children: [
                 {
                     path: "/dashboard",

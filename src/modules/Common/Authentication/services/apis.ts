@@ -74,9 +74,10 @@ export const login = (
                         refreshRoles();
                         if (response.data.response.exist_in_guild) {
                             navigate("/dev/profile");
-                        } else {
+                        } 
+                        else {
                             if (redirectPath) {
-                                navigate(`/${redirectPath}`);
+                                navigate("/dev/profile");
                             } else {
                                 navigate("/dev/profile");
                             }

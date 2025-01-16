@@ -8,6 +8,7 @@ import Leaderboard from './components/Profile/Leaderboard';
 import styles from './ProvileV3.module.css';
 import { fetchUserProfile } from '../service/ProfileService';
 import { getCollegeTitleById } from '../service/ProfileService';
+import { background } from '@chakra-ui/react';
 
 interface ProfileImageProps {
   src?: string;
@@ -40,53 +41,49 @@ const ProfileV3: React.FC<ProfileImageProps> = () => {
     .map(() => Math.random() > 0.3);
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <div className={styles.wrapper}>
-          <ProfileHeader
-            avatar={userData?.profile_pic}
-            name={userData?.full_name || ''}
-            stats={{
-              karmaPoints: Math.floor(userData?.karma) || 0,
-              avgKarma: (userData?.karma_distribution?.length > 0)
-                        ? userData.karma / userData.karma_distribution.length
-                        : 0,
-              ranking: userData?.rank || 0,
-            }}
-          />
-
-          <div className={styles.grid}>
-            <div className={`${styles.card} ${styles.card1}`}>
-              <hr className={styles.horizontalLine} />
-              <div>
-                <ProfileInfo
-                  institution={collegeTitle}
-                  careerPath="UI/UX Designer"
-                  interests={userData?.interest_groups ? userData.interest_groups.map((group: { name: string }) => group.name) : []}
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <div className={styles.wrapper}>
+            <ProfileHeader
+              avatar={userData?.profile_pic}
+              name={userData?.full_name || ''}
+              stats={{
+                karmaPoints: Math.floor(userData?.karma) || 0,
+                avgKarma: (userData?.karma_distribution?.length > 0)
+                          ? userData.karma / userData.karma_distribution.length
+                          : 0,
+                ranking: userData?.rank || 0,
+              }}
+            />
+            <div className={styles.grid}>
+              <div className={`${styles.card} ${styles.card1}`}>
+                <hr className={styles.horizontalLine} />
+                <div>
+                  <ProfileInfo
+                    institution={collegeTitle}
+                    careerPath="UI/UX Designer"
+                    interests={userData?.interest_groups ? userData.interest_groups.map((group: { name: string }) => group.name) : []}
+                  />
+                </div>
+              </div>
+              <div className={`${styles.card} ${styles.cardShortHeight} ${styles.card2}`}>
+                <CompleteTasks percentage={ Math.ceil(userData?.percentile * 100) }/>
+              </div>
+              <div className={`${styles.card} ${styles.card3}`}>
+                <AttendanceGrid
+                  attendance={attendanceData}
+                  percentage={48}
+                  totalSessions={124}
                 />
               </div>
-            </div>
-
-            <div className={`${styles.card} ${styles.cardShortHeight} ${styles.card2}`}>
-              <CompleteTasks percentage={ Math.ceil(userData?.percentile * 100) }/>
-            </div>
-
-            <div className={`${styles.card} ${styles.card3}`}>
-              <AttendanceGrid
-                attendance={attendanceData}
-                percentage={48}
-                totalSessions={124}
-              />
-            </div>
-
-            <div className={`${styles.card} ${styles.card4}`}>
-              <Leaderboard />
+              <div className={`${styles.card} ${styles.card4}`}>
+                <Leaderboard />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
-  );
+        </main>
+      </div>
+      );
 };
 
 export default ProfileV3;

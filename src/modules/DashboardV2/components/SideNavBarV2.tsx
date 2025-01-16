@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { MuButton } from "@/MuLearnComponents/MuButtons/MuButton";
+import {MuButton, MuButtonLight} from "../../../components/MuComponents/MuButtons/MuButton"
 import styles from "./SideNavBarV2.module.css";
 import MulearnBrand from "../assets/svg/MulearnBrand";
+import MuLogOut from "../../../modules/Dashboard/assets/svg/MuLogOut"
+import toast from "react-hot-toast";
 
 interface SidebarButton {
   id: string;
@@ -72,6 +74,19 @@ const SideNavBarV2 = ({
             onClick={() => onButtonClick(button)}
           />
         ))}
+        <MuButtonLight
+                    text="Logout"
+                    icon={<MuLogOut />}
+                    style={{
+                        backgroundColor: "#fff",
+                        color: "#FF7676"
+                    }}
+                    onClick={() => {
+                        localStorage.clear();
+                        toast.error("Logged Out, Redirecting to login page.");
+                        setTimeout(() => window.location.reload(), 900);
+                    }}
+                />
 
         {/* Left Arrow Button */}
         {isSidebarVisible && (

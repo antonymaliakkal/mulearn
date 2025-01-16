@@ -7,6 +7,7 @@ import Leaderboard from "../pages/components/Profile/Leaderboard";
 export const fetchUserInfo = async (): Promise<FetchUserInfoApiResponse> => {
   try {
     const response = await reqInstance.get<FetchUserInfoApiResponse>(ProfileRoutes.userInfo);
+    
     return response.data;
   } catch (err) {
     throw new Error("Failed to fetch user info");
@@ -41,6 +42,7 @@ reqInstance.interceptors.response.use(
     try {
       // Updated to use relative path
       const response = await reqInstance.get<FetchUserProfileApiResponse>(ProfileRoutes.userProfile);
+      console.log('profile data  :' , response.data);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -57,6 +59,7 @@ reqInstance.interceptors.response.use(
     try {
       // Updated to use relative path
       const response = await reqInstance.get<FetchCollegesApiResponse>(ProfileRoutes.colleges);
+      console.log('college data : ' , response.data);
       const college = response.data.response.colleges.find(
         (col: { id: string }) => col.id === collegeId
       );
