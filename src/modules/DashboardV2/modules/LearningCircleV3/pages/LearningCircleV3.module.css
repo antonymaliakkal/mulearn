@@ -2,33 +2,82 @@
   width: 100%;
   min-height: 1347px;
   border-radius: 16px;
-  /* border: 0.5px solid #787878; */
   background-color: #FFFFFF;
   margin: 0 auto;
-  /* padding: 35px 39px; */
   box-sizing: border-box;
   overflow: hidden;
+  padding: 35px 39px;
 }
+
+.allLearningCirclesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid layout with responsive columns */
+  gap: 20px; /* Space between cards */
+  margin-top: 20px;
+}
+
+/* Card element */
+.learningCircleCard {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Media Queries */
 
 /* Tablet view */
 @media (max-width: 1024px) {
   .mainBody {
-    width: 90%; /* Adjust width for tablet screens */
-    padding: 25px 30px; /* Adjust padding for smaller screens */
+    width: 90%;
+    padding: 25px 30px;
   }
+
+  .allLearningCirclesContainer {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minimum width */
+    gap: 15px; /* Adjust gap for smaller screens */
+    margin-top: 15px; /* Reduce margin for a tighter layout */
+   }
 }
 
 /* Mobile view */
 @media (max-width: 768px) {
-  .mainBody {
-    width: 100%; /* Full width on mobile */
-    padding: 15px 20px; /* Less padding on mobile */
-  }
+   .mainBody {
+     width: calc(100% - 20px); /* Full width minus some padding */
+     padding: 15px; /* Reduced padding for mobile */
+     min-height: auto; /* Allow height to adjust based on content */
+     border-radius: 12px; /* Slightly smaller border radius for mobile */
+     box-shadow: none; /* Remove shadow for cleaner look on mobile */
+   }
 
-  /* Stack the AllLearningCircles cards */
-  .allLearningCirclesContainer {
-    display: flex;
-    flex-direction: column; /* Stack vertically */
-    align-items: center; /* Center items */
-  }
+   .allLearningCirclesContainer {
+     grid-template-columns: repeat(1, 1fr); /* Force single column layout for mobile */
+     gap: 10px; /* Further reduce spacing for mobile devices */
+     margin-top: 10px; /* Tighten up the spacing above the grid */
+   }
+  
+   .learningCircleCard {
+      padding: 10px; /* Reduced padding for cards on mobile */
+      font-size: smaller; /* Smaller font size for better readability on small screens */
+   }
+}
+
+/* Small mobile view */
+@media (max-width: 480px) {
+   .mainBody {
+     padding: 10px; /* Minimal padding for very small devices */
+   }
+
+   .allLearningCirclesContainer {
+     gap: 5px; /* Minimal gap for very small devices */
+   }
+
+   .learningCircleCard {
+     padding: 8px; /* Further reduced padding on very small screens */
+     font-size: x-small; /* Even smaller font size for better fit */
+   }
+
+   
 }

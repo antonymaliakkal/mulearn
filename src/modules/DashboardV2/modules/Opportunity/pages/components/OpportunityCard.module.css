@@ -1,4 +1,4 @@
-.card{
+.card {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
@@ -14,39 +14,41 @@
     transition: transform 0.3s ease;
     margin-bottom: 16px;
 }
- 
-.card:hover{
+
+.card:hover {
     transform: translateY(-4px);
 }
- 
-.title{
+
+.title {
     display: flex;
     align-items: center;
     gap: 12px;
 }
- 
-.title img{
+
+.title img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
- .title_text{
+
+.title_text {
     text-align: start;
- }
-.title_text h1{
+}
+
+.title_text h1 {
     font-size: 18px;
     font-weight: 600;
     margin: 0;
 }
- 
-.title_text h2{
+
+.title_text h2 {
     font-size: 14px;
     font-weight: 400;
-    color: #757575
+    color: #757575;
 }
- 
-.card p{
+
+.card p {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -58,21 +60,21 @@
     color: #616161;
     line-height: 1.5em;
 }
- 
-.bottom_row{
-    display: flex ;
+
+.bottom_row {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
 }
- 
-.left{
+
+.left {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
- 
-.location, .jobType{
+
+.location, .jobType {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
@@ -81,8 +83,8 @@
     font-size: 14px;
     color: #424242;
 }
- 
-.right button{
+
+.right button {
     background-color: #1a73e8;
     border: none;
     width: 150px;
@@ -94,12 +96,89 @@
     cursor: pointer;
     transition: background 0.3s ease;
 }
- 
-.right button:hover{
+
+.right button:hover {
     background: #1558b0;
 }
- 
-.right button a{
-    color:#fff;
+
+.right button a {
+    color: #fff;
     text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .card {
+        max-width: 48%; /* Slightly larger card width on medium screens */
+        min-width: 48%;
+    }
+
+    .title_text h1 {
+        font-size: 16px; /* Smaller font size for titles */
+    }
+
+    .title_text h2 {
+        font-size: 12px; /* Smaller subtitle */
+    }
+
+    .card p {
+        font-size: 13px; /* Smaller text for description */
+    }
+
+    .right button {
+        width: 130px; /* Smaller button width on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; /* Full width cards on smaller screens */
+        min-width: 100%;
+        min-height: auto; /* Remove fixed height for cards */
+    }
+
+    .title_text h1 {
+        font-size: 14px; /* Further reduce title font size */
+    }
+
+    .title_text h2 {
+        font-size: 10px; /* Further reduce subtitle size */
+    }
+
+    .card p {
+        font-size: 12px; /* Even smaller text for description */
+    }
+
+    .right button {
+        width: 120px; /* Smaller button width on smaller screens */
+        font-size: 12px; /* Smaller font size for button text */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 12px; /* Smaller padding on cards for small screens */
+    }
+
+    .title img {
+        width: 35px;
+        height: 35px; /* Smaller image on small screens */
+    }
+
+    .title_text h1 {
+        font-size: 12px; /* Minimal title font size */
+    }
+
+    .title_text h2 {
+        font-size: 8px; /* Minimal subtitle font size */
+    }
+
+    .card p {
+        font-size: 11px; /* Smaller text for descriptions */
+    }
+
+    .right button {
+        width: 110px; /* Even smaller button width */
+        font-size: 10px; /* Reduce font size for buttons */
+    }
 }

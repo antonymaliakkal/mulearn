@@ -99,7 +99,9 @@ const LearningCircleV3: React.FC = () => {
     return (
         <div className={styles.mainBody}>
             <LearningCircleWithUpcomingMeets events={upcomingEvents} />
+            <div className={styles.allLearningCirclesContainer}>
             <AllLearningCircles circles={allCircles} />
+            </div>
         </div>
     );
 };

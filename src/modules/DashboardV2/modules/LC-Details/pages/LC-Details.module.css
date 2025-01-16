@@ -519,4 +519,212 @@
 
 
 
+  /* Tablet View (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .learningCircle {
+    padding: 15px; /* Adjust padding for smaller tablets */
+  }
+
+  .longImage {
+    height: 250px; /* Reduce image height on tablets */
+  }
+
+  .header h1 {
+    font-size: 22px; /* Reduce header font size */
+  }
+
+  .header p {
+    font-size: 14px; /* Adjust paragraph font size */
+  }
+
+  .headerActions {
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  }
+
+  .actionButton2 {
+    padding: 8px 20px; /* Reduce button padding */
+    font-size: 12px; /* Reduce button font size */
+    width: auto; /* Allow button to resize */
+  }
+
+  .stats {
+    gap: 20px; /* Reduce gap between stats */
+    margin-left: 3rem; /* Adjust left margin */
+  }
+  .statItem {
+    text-align: center; /* Center align stat items */
+  }
+
+  .statValue {
+    font-size: 30px; /* Adjust font size for stat value */
+  }
+
+  .statLabel {
+    font-size: 12px; /* Adjust font size for stat label */
+  }
+
+  .statItemWithButton {
+    gap: 10px; /* Add space between stat item content and button */
+  }
+
+  .viewPeersButton {
+    font-size: 14px; /* Adjust button font size */
+    padding: 6px 12px; /* Adjust button padding */
+  }
+
+  .cardButtons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 5px; /* Reduce gap */
+  }
+
+  .popup {
+    width: 90%; /* Make the popup width responsive */
+    height: auto; /* Adjust height based on content */
+  }
+}
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+  .learningCircle {
+    padding: 10px; /* Reduce padding on mobile */
+  }
+
+  .longImage {
+    height: 200px; /* Further reduce image height */
+  }
+
+  .header h1 {
+    font-size: 20px; /* Reduce header font size */
+  }
+
+  .header p {
+    font-size: 12px; /* Reduce paragraph font size */
+  }
+
+  .headerActions {
+    flex-direction: column; /* Stack action buttons vertically */
+    gap: 10px; /* Increase gap between buttons */
+  }
+
+  .actionButton2 {
+    padding: 6px 15px; /* Smaller button padding */
+    font-size: 10px; /* Smaller font size */
+    width: auto; /* Let button adjust to content */
+  }
+
+  .actionButton {
+    padding: 5px 10px; /* Minimal padding */
+    font-size: 8px; /* Very small font size */
+    width: auto; /* Button adjusts to content */
+  }
+
+  .stats {
+    flex-direction: column; /* Stack stats vertically */
+    gap: 10px; /* Reduce gap */
+    margin-left: 0; /* Remove left margin */
+  }
+
+
+  .statItem {
+    text-align: center; /* Center align stat items */
+  }
+
+  .statValue {
+    font-size: 25px; /* Further reduce stat value font size */
+    text-align: center;
+  }
+
+  .statLabel {
+    font-size: 10px; /* Further reduce stat label font size */
+  }
+
+  .statItemWithButton {
+    gap: 8px; /* Reduce gap between stat content and button */
+  }
+
+  .viewPeersButton {
+    font-size: 12px; /* Smaller button font size */
+    padding: 5px 10px; /* Smaller button padding */
+  }
+  .meetingCard {
+    padding: 12px; /* Reduce padding on mobile */
+    margin: 10px 0; /* Adjust margins */
+  }
+
+  .popup {
+    width: 100%; /* Ensure popup takes full width */
+    height: auto; /* Adjust height based on content */
+  }
+
+  .dtd input, .dtd select {
+    width: 100%; /* Allow input/select fields to expand */
+  }
+}
+
+/* Small Mobile View (max-width: 480px) */
+@media (max-width: 480px) {
+  .learningCircle {
+    padding: 8px; /* Minimal padding for small devices */
+  }
+
+  .longImage {
+    height: 150px; /* Further reduce image height */
+  }
+
+  .header h1 {
+    font-size: 18px; /* Further reduce header font size */
+  }
+
+  .header p {
+    font-size: 10px; /* Smaller font size */
+  }
+
+  .headerActions {
+    gap: 5px; /* Reduce gap between buttons */
+  }
+
+  .actionButton2 {
+    padding: 5px 10px; /* Minimal padding */
+    font-size: 8px; /* Very small font size */
+    width: auto; /* Button adjusts to content */
+  }
+
+  .actionButton {
+    padding: 5px 10px; /* Minimal padding */
+    font-size: 8px; /* Very small font size */
+    width: auto; /* Button adjusts to content */
+  }
+  .stats {
+    gap: 10px; /* Reduce gap between stats */
+  }
   
+  .statItem {
+    text-align: center; /* Center align stat items */
+  }
+
+  .statValue {
+    font-size: 20px; /* Further reduce stat value font size */
+    text-align: center;
+  }
+
+  .statLabel {
+    font-size: 8px; /* Further reduce stat label font size */
+  }
+
+  .statItemWithButton {
+    gap: 5px; /* Minimal gap between stat content and button */
+  }
+
+  .viewPeersButton {
+    font-size: 10px; /* Very small button font size */
+    padding: 4px 8px; /* Minimal button padding */
+  }
+  .popup {
+    width: 100%; /* Full width for popups on small screens */
+    height: auto; /* Adjust height based on content */
+  }
+
+  .dtd input, .dtd select {
+    width: 100%; /* Allow fields to take full width */
+  }
+}

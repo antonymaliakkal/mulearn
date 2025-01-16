@@ -14,16 +14,16 @@
 }
 
 .createButton {
-        padding: 12px 20px;
-        background-color: #0961F5;
-        color: #fff;
-        border: none;
-        border-radius: 32px; 
-        cursor: pointer;
-        width: fit-content;
-        box-sizing: border-box;
-        margin-bottom: 10px; 
-        font-size: 14px;
+    padding: 12px 20px;
+    background-color: #0961F5;
+    color: #fff;
+    border: none;
+    border-radius: 32px; 
+    cursor: pointer;
+    width: fit-content;
+    box-sizing: border-box;
+    margin-bottom: 10px; 
+    font-size: 14px;
 }
 
 .sectionHeader {
@@ -56,4 +56,62 @@
 .card {
     flex: 0 0 calc(33.33% - 16px); 
     max-width: 300px; 
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .cardContainer {
+        gap: 16px;
+    }
+
+    .card {
+        flex: 0 0 calc(50% - 16px); /* Adjust card width on tablet screens */
+    }
+
+    .sectionHeader {
+        font-size: 18px; /* Smaller font size for section header */
+    }
+
+    .createButton {
+        font-size: 12px; /* Adjust button text size */
+        padding: 10px 18px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        gap: 12px;
+    }
+
+    .card {
+        flex: 0 0 100%; /* Full width cards on small screens */
+    }
+
+    .sectionHeader {
+        font-size: 16px; /* Further reduce section header font size */
+    }
+
+    .createButton {
+        font-size: 10px; /* Even smaller button text */
+        padding: 8px 16px; /* Smaller button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .cardContainer {
+        gap: 8px;
+    }
+
+    .card {
+        flex: 0 0 100%; /* Ensure cards are stacked vertically */
+    }
+
+    .sectionHeader {
+        font-size: 14px; /* Minimal section header font size */
+    }
+
+    .createButton {
+        font-size: 8px; /* Very small font size for buttons */
+        padding: 6px 14px; /* Very small padding for buttons */
+    }
 }

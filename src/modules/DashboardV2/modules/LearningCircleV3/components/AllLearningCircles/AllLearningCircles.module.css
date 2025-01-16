@@ -26,3 +26,12 @@
     max-width: calc(33.333% - 20px);
     box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+    .sectionBody {
+        display: flex; /* Change to flexbox for mobile */
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Space between stacked items */
+        width: 100rem;
+    }
+}

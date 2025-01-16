@@ -57,9 +57,104 @@
 .cardTitle {
   font-size: 16px; 
   font-weight: bold; 
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 .cardDescription {
   font-size: 14px; 
+}
+
+@media (max-width: 1024px) {
+    /* Tablet view adjustments */
+    .cardImage {
+        width: 200px;
+        height: 180px;
+    }
+
+    .infoRow {
+        flex-direction: column; /* Stack info items vertically */
+        justify-content: flex-start;
+    }
+
+    .infoText {
+        font-size: 13px; /* Smaller font size for mobile */
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .joinButton {
+        padding: 10px 18px; /* Adjust button padding */
+        font-size: 12px; /* Smaller button font size */
+    }
+
+    .cardTitle {
+        font-size: 14px; /* Adjust card title size */
+    }
+
+    .cardDescription {
+        font-size: 12px; /* Adjust description size */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile view adjustments */
+    .cardImage {
+        width: 180px;
+        height: 160px;
+    }
+
+    .infoRow {
+        flex-direction: column; /* Stack info row vertically on smaller screens */
+        align-items: flex-start; /* Align to the left */
+    }
+
+    .infoText {
+        font-size: 12px; /* Further decrease text size */
+    }
+
+    .joinButton {
+        padding: 8px 16px; /* Reduce button padding */
+        font-size: 10px; /* Even smaller font size for mobile */
+    }
+
+    .cardFooter {
+        padding: 0 5px; /* Reduce footer padding */
+    }
+
+    .cardTitle {
+        font-size: 12px; /* Further reduce font size */
+    }
+
+    .cardDescription {
+        font-size: 10px; /* Smaller description text */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small mobile adjustments */
+    .cardImage {
+        width: 150px;
+        height: 130px;
+    }
+
+    .infoRow {
+        flex-direction: column; /* Stack elements vertically for tiny screens */
+        align-items: flex-start;
+    }
+
+    .joinButton {
+        padding: 6px 14px; /* Minimal padding */
+        font-size: 8px; /* Very small font size */
+    }
+
+    .cardFooter {
+        padding: 0 3px; /* Further reduce footer padding */
+    }
+
+    .cardTitle {
+        font-size: 10px; /* Minimal card title size */
+    }
+
+    .cardDescription {
+        font-size: 8px; /* Minimize description text */
+    }
 }
