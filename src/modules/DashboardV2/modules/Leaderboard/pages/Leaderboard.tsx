@@ -6,6 +6,7 @@ import EdwinAvatar from "../../../assets/images/Avatars/Edwin.png";
 import AnnaAvatar from "../../../assets/images/Avatars/Anna.png";
 import AlexaAvatar from "../../../assets/images/Avatars/Alexa.png";
 import { getLeaderboard, getMyRank } from "../service/Leaderboardservice";
+import Rank from "../components/Rank";
 
 // Define types for the state objects
 interface User {
@@ -93,58 +94,7 @@ const Leaderboard: React.FC = () => {
   return (
     <div className={styles["leaderboard-container"]}>
       {/* Confetti component positioned inside the champions section */}
-      <div ref={championsRef} className={styles["champions-section"]}>
-        <Confetti
-          width={championsBoxDimensions.width}
-          height={championsBoxDimensions.height}
-          numberOfPieces={numberOfPieces} // Dynamically control number of pieces
-          tweenDuration={5000}
-        />
-        <div className={styles["champions-header"]}>
-          <h2>CHAMPIONS</h2>
-        </div>
-        <div className={styles["top-3"]}>
-          {rankingData.map((user, index) => (
-            <div
-              key={index}
-              className={`${styles["champion"]} ${styles[`champion-${index + 1}`]} ${
-                index === 0 ? styles["center"] : index === 1 ? styles["left"] : styles["right"]
-              }`}
-            >
-              <div className={styles["bar-container"]}>
-                <div
-                  className={`${styles["bar"]} ${
-                    index === 0 ? styles["bar-1"] : index === 1 ? styles["bar-2"] : styles["bar-3"]
-                  }`}
-                  style={{
-                    height: `${(user.total_karma / maxPoints) * 100}%`,
-                  }}
-                >
-                  <div className={styles["bar-info"]}>
-                    <div className={styles["crown"]}>{index === 0 ? <ChampionCrown /> : ""}</div>
-                    <div className={styles["circle-container"]} style={{ backgroundColor: user.color }}>
-                        <img
-                        src={avatarIndex[index]}
-                        alt={user.full_name}
-                        className={styles["champion-avatar"]}
-                        onError={(event) => {
-                          (event.target as HTMLImageElement).src = `https://via.placeholder.com/50?text=${user.full_name.charAt(
-                            0
-                          )}`; // Set a placeholder if avatar fails to load
-                        }}
-                      />
-                    </div>
-                    {/* <p className={styles["champion-name"]}>{user.name.split(" ")[0]}</p> */}
-                  </div>
-                  <span className={styles["bar-points"]}>
-                    {user.total_karma ? user.total_karma.toLocaleString() : "0"}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Rank></Rank>
       {/* Leaderboard Table */}
       <section className={styles["leaderboard-table"]}>
         <div className={styles["table-wrapper"]}>
