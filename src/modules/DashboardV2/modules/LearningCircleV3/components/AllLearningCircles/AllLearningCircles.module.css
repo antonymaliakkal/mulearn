@@ -26,3 +26,38 @@
     max-width: calc(33.333% - 20px);
     box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        width: 100%; /* Ensure container takes full width */
+    }
+
+    .header {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .sectionBody {
+        flex-direction: column;
+        align-items: stretch;  /* Stretch items to fill the container width */
+        gap: 15px;
+    }
+
+    .sectionBody > div {
+        flex: 1 1 100%;
+        max-width: 100%;  /* Ensure the cards take up full width */
+        box-sizing: border-box;  /* Ensure padding and borders are included in width */
+    }
+}
+
+@media (max-width: 1200px) {
+    .sectionBody {
+        flex-direction: column; /* Single column layout from 1200px and above */
+    }
+
+    .sectionBody > div {
+        flex: 1 1 100%; /* Ensure cards take full width in the single column */
+        max-width: 100%; /* Ensure cards take up full width */
+    }
+}

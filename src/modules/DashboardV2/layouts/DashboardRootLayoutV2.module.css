@@ -39,13 +39,23 @@
   border-radius: 4px;
 }
 
+/* For screen sizes between 1200px and 1600px */
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  .right_side {
+    margin-left: calc(20%); /* Sidebar increased to 20% */
+    width: calc(80% - 6rem); /* Remaining space minus padding */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+  
+  }
+}
+
 /* Large Screens (Desktop) */
-@media screen and (min-width: 1441px) {
+/* @media screen and (min-width: 1441px) {
   .main_content {
     margin: 24px;
     padding: 32px;
   }
-}
+} */
 
 /* Medium Screens (Laptop) */
 @media screen and (max-width: 1200px) {

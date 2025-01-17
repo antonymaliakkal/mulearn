@@ -9,6 +9,7 @@ import styles from './ProvileV3.module.css';
 import { fetchUserProfile } from '../service/ProfileService';
 import { getCollegeTitleById } from '../service/ProfileService';
 import { background } from '@chakra-ui/react';
+import MuLoader from '@/MuLearnComponents/MuLoader/MuLoader';
 
 interface ProfileImageProps {
   src?: string;
@@ -19,22 +20,42 @@ interface ProfileImageProps {
 const ProfileV3: React.FC<ProfileImageProps> = () => {
   const [userData, setUserData] = useState<any | null>(null);
   const [collegeTitle, setCollegeTitle] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true); // New state for loading
+
+  const gatherUserInfo = async () => {
+    try {
+      const userProfiledata = await fetchUserProfile();
+      setUserData(userProfiledata.response);
+
+      const collegeTitle = await getCollegeTitleById(userProfiledata.response?.college_id) || '';
+      setCollegeTitle(collegeTitle);
+    } catch (err: any) {
+      console.error('Failed to fetch user info:', err);
+    }
+  };
+
+  
+  
+
   
   useEffect(() => {
-    const gatherUserInfo = async () => {
-      try {
-        const userProfiledata = await fetchUserProfile();
-        setUserData(userProfiledata.response);
-
-        const collegeTitle = await getCollegeTitleById(userProfiledata.response?.college_id) || '';
-        setCollegeTitle(collegeTitle);
-      } catch (err: any) {
-        console.error('Failed to fetch user info:', err);
+    
+    const checkToken = async () => {
+      console.log("entered");
+      const token = await new Promise((resolve) =>
+          setTimeout(() => resolve(localStorage.getItem("accessToken")), 100)
+      );
+      console.log(token);
+      if (token) {
+          setIsLoading(false); // Stop loading once token is available
+          gatherUserInfo();
       }
-    };
-
-    gatherUserInfo();
+  };
+     
+      checkToken();
   }, []);
+
+
 
   const attendanceData = Array(100)
     .fill(0)

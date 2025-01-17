@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 
 const accessToken = localStorage.getItem("accessToken");
-
+console.log('base req :  ' , accessToken);
 
 export const reqInstance = axios.create({
   // In development, use relative URLs that will be handled by the Vite proxy

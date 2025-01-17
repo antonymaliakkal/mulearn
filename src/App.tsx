@@ -1,5 +1,5 @@
 import "./App.css";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import {
     RouterProvider,
     createBrowserRouter,
@@ -267,6 +267,14 @@ const Trivial = lazy(
 );
 
 function App() {
+    useEffect(() => {
+        const isFirstVisit = localStorage.getItem("isFirstVisit");
+        if (!isFirstVisit) {
+            localStorage.clear();
+            localStorage.setItem("isFirstVisit", "false");
+        }
+    }, []);
+
     const AuthChecker = SecureAuthRoutes();
     const router = createBrowserRouter([
         // Add redirect from '/' to '/login'

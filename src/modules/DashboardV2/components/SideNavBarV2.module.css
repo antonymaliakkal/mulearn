@@ -133,13 +133,19 @@
 }
 
 /* Media Queries */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .sidebar {
+    width: 20%; /* Adjust this value to your desired width */
+  }
+}
+
 @media (max-width: 1200px) {
   .sidebar {
     width: var(--sidebar-width-tablet);
   }
 }
 
-@media (max-width: 830px) {
+@media (max-width: 900px) {
   .sidebar {
     width: var(--sidebar-width-mobile);
     padding: 1.5rem;

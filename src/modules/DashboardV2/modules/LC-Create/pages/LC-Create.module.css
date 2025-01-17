@@ -1,117 +1,196 @@
-.createContainer{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 100%;
-    gap: 40px;
+.createContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 100%;
 }
-.sectionTitle{
-    font-size: 20px;
-    font-weight: 700;
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
-.inputGroup{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    position: relative;
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
 }
-.textArea{
-    width: 100%;
-    height: 20vh;
+
+.textArea textarea {
+  height: 120px;
 }
-input,textarea,select{
-    border: 0.5px solid #787878;
-    border-radius: 8px;
-    padding: 11px;
-    height: 100%;
+
+input,
+textarea,
+select {
+  border: 1px solid #787878;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 5px;
 }
-input::placeholder,textarea::placeholder,select{
-    font-size: 12px;
-    font-weight: 500;
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0a0a0;
 }
-select{
-    color: #787878;
+
+.inputLabel {
+  font-weight: 600;
+  font-size: 14px;
 }
-.input_label{
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 4px;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-form{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-between;
+
+/* Flex Layout for Inputs (Two columns) */
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px; /* Space between items */
 }
-.submitBtn{
-    background-color: #0961F5;
-    color: #fff;
-    border-radius: 32px;
-    padding: 16px 66px;
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between inputs in each column */
+  width: 48%; /* 2 columns by default, each taking ~50% of the space */
 }
-/* Switch Button */
-/* The switch - the box around the slider */
+
+.textArea {
+  width: 100%;
+  flex-grow: 1; /* Ensures it takes up available space */
+  max-width: 100%;
+}
+
+/* Bottom Section - Buttons */
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.leftButton,
+.rightButton {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust space between elements */
+  flex-direction: column; /* Stack vertically */
+}
+
+/* Submit Button */
+.submitBtn {
+  align-self: flex-start;
+  background-color: #0961f5;
+  color: white;
+  border-radius: 32px;
+  padding: 14px 40px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Switch for Recurring */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+  position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gridContainer {
+      flex-direction: column; /* Switch to 1-column layout for smaller screens */
   }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+
+  .column {
+      width: 100%;
+      padding: 0;
+      margin: 0;
   }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+
+  .inputGroup {
+      width: 100%;
+      max-width: 100%;
   }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+
+  .bottomSection {
+      flex-direction: column;
+      gap: 20px;
   }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
+
+  .createInterestGroupBtn {
+      width: 100%;
+      text-align: center;
   }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+}
+
+/* For small screens (max-width: 576px) */
+@media (max-width: 576px) {
+  .createContainer {
+      padding: 12px; /* Adjust padding */
   }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+
+  .sectionTitle {
+      font-size: 18px; /* Slightly smaller title */
   }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
+
+  .inputGroup {
+      max-width: 100%; /* Make inputs full-width */
   }
-  
-  .slider.round:before {
-    border-radius: 50%;
+
+  .submitBtn {
+      padding: 12px 30px;
+      font-size: 14px;
   }
+
+  .createInterestGroupBtn {
+      padding: 10px 15px; /* Adjust button padding */
+      font-size: 14px;
+  }
+}
